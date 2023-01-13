@@ -57,7 +57,22 @@
       },
       "/Users/hadymatar/turing_work/Mod1/night_writer_hady/lib/alphabet.rb": {
         "lines": [
-
+          1,
+          1,
+          null,
+          1,
+          1,
+          1,
+          1,
+          null,
+          null,
+          1,
+          1,
+          26,
+          null,
+          null,
+          null,
+          null
         ]
       },
       "/Users/hadymatar/turing_work/Mod1/night_writer_hady/lib/braille_letter.rb": {
@@ -79,12 +94,12 @@
           1,
           1,
           1,
-          4,
+          26,
           null,
           null
         ]
       }
     },
-    "timestamp": 1673583544
+    "timestamp": 1673585283
   }
 }
