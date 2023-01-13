@@ -6,6 +6,8 @@ class NightWriterRunner
     @files = files 
     @message_file = File.open(files[0], "r")
     @new_file = File.new(files[1], "w")
+    require 'pry'; binding.pry
+    @test = "t"
   end
 
   def run 
