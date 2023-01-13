@@ -17,16 +17,24 @@ RSpec.describe NightWriterRunner do
     end 
 
     it "the message.txt file starts out with some input information which can be read" do 
-      expect(night_writer_runner.message_file.read).to eq("the quick brown fox jumps over the lazy dog is a sentence which has every letter of the alphabet")
+      expect(night_writer_runner.message_file.read).to eq("the quick CAPITALIZEbrown fox jumps over the lazy dog is a sentence which has every letter of the alphabet")
       
     end
 
-    it "the message.txt file can be added ot and therefore change its output when read" do 
-      require 'pry'; binding.pry
+    it "when the actual method is run, the message.txt file is then turned into downcase and written into the new file" do 
+      night_writer_runner.copy_file
+      expect(night_writer_runner.read_file.read).to eq("the quick capitalizebrown fox jumps over the lazy dog is a sentence which has every letter of the alphabet")
 
+    end
 
-      expect(night_writer_runner.message_file.read).to eq("the quick brown fox jumps over the lazy dog is a sentence which has every letter of the alphabet. this result establishes that i changed it.")
+    it "takes the information in the new/copied file and puts it into a string that counts the number of characters" do 
+      night_writer_runner.copy_file
+      expect(night_writer_runner.count_number).to eq(106)
 
+    end
+
+    it "outputs a string that indicates how many characters are in the new_file" do 
+      expect(night_writer_runner.run).to eq("Created braille.txt containing 106 characters")
     end
 
   end 
