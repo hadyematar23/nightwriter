@@ -1,13 +1,14 @@
 require 'spec_helper'
 
 RSpec.describe NightWriterRunner do
-  let(:night_writer_runner){NightWriterRunner.new}
-  describe "#initialize" do 
-    it "exists as an object" do 
-      
-      night_writer_runner = NightWriterRunner.new
-      expect(night_writer_runner).to be_an_instance_of(NightWriterRunner)
 
-    end
+    it "the first action when input is to open an existing file" do 
+      require 'pry'; binding.pry
+      # message_file = File.open("message.txt", "r")
+      # new_file = File.open("braille.txt", "w")
+      
+
+
+
   end
 end
