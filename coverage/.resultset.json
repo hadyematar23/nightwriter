@@ -8,33 +8,33 @@
           null,
           1,
           1,
-          6,
-          6,
-          6,
+          0,
+          0,
+          0,
           null,
           null,
           1,
-          1,
-          1,
-          1,
+          0,
+          0,
+          0,
           null,
           null,
           1,
-          3,
-          3,
-          3,
+          0,
+          0,
+          0,
           null,
           null,
           1,
-          2,
+          0,
           null,
-          2,
-          2,
-          2,
+          0,
+          0,
+          0,
           null,
           null,
           1,
-          1,
+          0,
           null,
           null,
           null,
@@ -54,8 +54,37 @@
           null,
           null
         ]
+      },
+      "/Users/hadymatar/turing_work/Mod1/night_writer_hady/lib/alphabet.rb": {
+        "lines": [
+
+        ]
+      },
+      "/Users/hadymatar/turing_work/Mod1/night_writer_hady/lib/braille_letter.rb": {
+        "lines": [
+
+        ]
+      },
+      "/Users/hadymatar/turing_work/Mod1/night_writer_hady/lib/dictionary.rb": {
+        "lines": [
+          1,
+          1,
+          null,
+          null,
+          null
+        ]
+      },
+      "/Users/hadymatar/turing_work/Mod1/night_writer_hady/lib/latin_letter.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          4,
+          null,
+          null
+        ]
       }
     },
-    "timestamp": 1673579278
+    "timestamp": 1673583544
   }
 }
