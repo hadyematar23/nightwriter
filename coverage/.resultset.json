@@ -61,14 +61,14 @@
           1,
           null,
           1,
-          1,
-          1,
-          1,
+          0,
+          0,
+          0,
           null,
           null,
           1,
-          1,
-          26,
+          0,
+          0,
           null,
           null,
           null,
@@ -77,7 +77,14 @@
       },
       "/Users/hadymatar/turing_work/Mod1/night_writer_hady/lib/braille_letter.rb": {
         "lines": [
-
+          1,
+          1,
+          null,
+          1,
+          2,
+          2,
+          null,
+          null
         ]
       },
       "/Users/hadymatar/turing_work/Mod1/night_writer_hady/lib/dictionary.rb": {
@@ -94,12 +101,12 @@
           1,
           1,
           1,
-          26,
+          0,
           null,
           null
         ]
       }
     },
-    "timestamp": 1673585283
+    "timestamp": 1673585845
   }
 }
