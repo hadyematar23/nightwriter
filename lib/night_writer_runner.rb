@@ -16,16 +16,9 @@ class NightWriterRunner
   end
 
   def run 
-    # copy_file
     characters = count_number
     string = create_string(characters)
   end
-
-  # def copy_file
-  #   @new_file.write(message_file.read.downcase)
-  #   @read_file = File.open(@new_file)
-  #   @new_file.close
-  # end 
 
   def count_number  
     lines = File.readlines(@message_file)

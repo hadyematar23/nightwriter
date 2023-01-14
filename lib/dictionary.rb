@@ -3,6 +3,7 @@ class Dictionary
                       :braille_script,
                        :braille_array,
                        :read_file,
+                       :transposed,
                       :braille_phrase
   def initialize(phrase, file)
     @braille_array = nil 
@@ -10,13 +11,12 @@ class Dictionary
     create_latin_letters
     @braille_script = nil
     create_braille_characters
-    # require 'pry'; binding.pry
-    latin_to_braille_helper(phrase)
-    # require 'pry'; binding.pry
-    open_file = File.open(file, "w")
-    open_file.write(phrase)
-    open_file.close
-    @read_file = File.read(open_file)
+    non_transposed = latin_to_braille_helper(phrase)
+    @transposed = print_phrase(non_transposed)
+    file = File.open(file, "w")
+    file.puts transposed
+    file.close
+    @read_file = File.read(file)
   end
 
   def create_latin_letters
