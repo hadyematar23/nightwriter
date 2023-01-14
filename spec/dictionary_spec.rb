@@ -87,7 +87,6 @@ let(:space_braille){BrailleLetter.new("space", "..!..!..")}
 
   context "printing to the previously created braille.txt file" do 
     it "can take a phrase and print it to the braille.txt file previously created" do 
-      dictionary
       expect(dictionary.read_file).to eq("he")
     end
   end

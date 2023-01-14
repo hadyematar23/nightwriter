@@ -10,9 +10,11 @@ class Dictionary
     create_latin_letters
     @braille_script = nil
     create_braille_characters
-    transposed = latin_to_braille_helper(phrase)
+    # require 'pry'; binding.pry
+    latin_to_braille_helper(phrase)
+    # require 'pry'; binding.pry
     open_file = File.open(file, "w")
-    open_file.write(transposed)
+    open_file.write(phrase)
     open_file.close
     @read_file = File.read(open_file)
   end
@@ -59,7 +61,8 @@ class Dictionary
 
   def latin_to_braille_helper(phrase)
     @braille_array = translate_l_to_braille(phrase)
-    print_phrase(braille_array)
+    @braille_array
+    # print_phrase(braille_array)
   end 
 
   def translate_l_to_braille(phrase)
