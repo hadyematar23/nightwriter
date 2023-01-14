@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 RSpec.describe Dictionary do
-let(:dictionary){Dictionary.new}
+let(:dictionary){Dictionary.new("he", "filepathplaceholder")}
 let(:a_braille){BrailleLetter.new("a","0.!..!..")}
 let(:b_braille){BrailleLetter.new("b","0.!0.!..")}
 let(:c_braille){BrailleLetter.new("c","00!..!..")}
@@ -85,10 +85,11 @@ let(:space_braille){BrailleLetter.new("space", "..!..!..")}
   end 
 
   context "#integration test of inputting latin phrase and getting braille print to console" do 
-    it "takes in a latin phrase and outputs the braille equivalent to the console" do 
-      phrase = "he w"
-      expect(dictionary.latin_to_braille_helper(phrase)).to eq(["0.0....0", "00.0..00", ".......0"])
+    it "takes in a latin phrase and outputs the braille equivalent in an array" do 
+      expect(dictionary.braille_array).to eq(["0.!00!..", "0.!.0!.."])
     end
+
+    
 
 
 

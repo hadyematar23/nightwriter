@@ -1,12 +1,17 @@
 class Dictionary
           attr_reader :latin_script, 
-                      :braille_script, 
+                      :braille_script,
+                       :braille_array,
                       :braille_phrase
-  def initialize
+  def initialize(phrase, file)
+    @braill_array
     @latin_script = []
     create_latin_letters
     @braille_script = nil
     create_braille_characters
+    latin_to_braille_helper(phrase)
+    
+
     # @braille_phrase = []
   end
 
@@ -51,7 +56,7 @@ class Dictionary
   # end
 
   def latin_to_braille_helper(phrase)
-    braille_array = translate_l_to_braille(phrase)
+    @braille_array = translate_l_to_braille(phrase)
     print_phrase(braille_array)
   end 
 
@@ -68,7 +73,6 @@ class Dictionary
     end
     
   end 
-  # require 'pry'; binding.pry
   translated_array
   end
 

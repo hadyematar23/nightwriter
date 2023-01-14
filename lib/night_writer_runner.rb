@@ -1,3 +1,7 @@
+require_relative './braille_letter'
+require_relative './dictionary'
+require_relative './latin_letter'
+
 class NightWriterRunner
         attr_accessor :message_file, 
                       :new_file
@@ -16,7 +20,7 @@ class NightWriterRunner
 
   def copy_file
     @new_file.write(message_file.read.downcase)
-    @read_file = File.open(@new_file) 
+    @read_file = File.open(@new_file)
     @new_file.close
   end 
 
