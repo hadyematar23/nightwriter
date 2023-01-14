@@ -35,14 +35,31 @@ class Dictionary
     BrailleLetter.new("r", "0.!00!0."),
     BrailleLetter.new("s", ".0!0.!0."),
     BrailleLetter.new("t", ".0!00!0."),
-    BrailleLetter.new("u", ".0!..!00"),
-    BrailleLetter.new("v", ".0!0.!00"),
+    BrailleLetter.new("u", "0.!..!00"),
+    BrailleLetter.new("v", "0.!0.!00"),
     BrailleLetter.new("w", ".0!00!.0"),
     BrailleLetter.new("x", "00!..!00"),
     BrailleLetter.new("y", "00!.0!00"),
-    BrailleLetter.new("t", "0.!.0!00"),
-    BrailleLetter.new("space", "..!..!..")]
+    BrailleLetter.new("z", "0.!.0!00"),
+    BrailleLetter.new(" ", "..!..!..")]
   end
+
+  def translate_l_to_braille(phrase)
+    translated_array = []
+
+    latin_phrase = phrase.split('')
+    latin_phrase.each do |latin_letter|
+      @braille_script.each do |braille_letter|
+        if latin_letter == braille_letter.latin_equivalent
+          translated_array << braille_letter.representation
+        end
+    end
+    
+  end 
+  translated_array.zip
+  end
+
+
 
 
 end

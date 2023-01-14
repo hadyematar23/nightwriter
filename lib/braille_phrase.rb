@@ -13,12 +13,13 @@ class BraillePhrase
       @letters.map do |brailee|
         array << brailee.split("!")
       end 
-      
+      require 'pry'; binding.pry
       array = array.transpose
 
       array.map! do |element|
       element.join
       end
+      require 'pry'; binding.pry
       puts array 
       array
   end

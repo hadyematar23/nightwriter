@@ -21,6 +21,23 @@ let(:dictionary){Dictionary.new}
     expect(dictionary.braille_script.count).to eq(27)
   end
 
+  xit "when input of a Latin letter is provided it will return the braille equivalent" do 
+    input = "a"
+    expect(dictionary.translate_l_to_braille(input)).to eq([["0.!..!.."]])
+  end
+
+  it "when input of a Latin phrase is provided, it will return the braille equivalent of the phrase" do 
+    input = "hello w"
+    expect(dictionary.translate_l_to_braille(input)).to eq([["0.!00!.."], ["0.!.0!.."], ["0.!0.!0."], ["0.!0.!0."], ["0.!.0!0."], ["..!..!.."], [".0!00!.0"]])
+
+  end
+
+  it "when input of a Latin phrase is provided, it will return the braille equivalent of the phrase" do 
+    input = "a lazy fox"
+    expect(dictionary.translate_l_to_braille(input)).to eq([["0.!..!.."], ["..!..!.."], ["0.!0.!0."], ["0.!..!.."], ["0.!.0!00"], ["00!.0!00"], ["..!..!.."], ["00!0.!.."], ["0.!.0!0."], ["00!..!00"]])
+
+  end
+
 
 end 
     
