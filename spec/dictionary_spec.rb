@@ -97,9 +97,9 @@ let(:space_braille){BrailleLetter.new("space", "..!..!..")}
       expect(dictionary.braille_array).to eq(["0.!00!..", "0.!.0!.."])
     end
 
-    # it "takes the latin phrase from the original message and prints it in braille on the new file" do 
-    #   expect(dictionary.read_file).to eq("he")
-    # end
+    it "takes the latin phrase from the original message and prints it in braille on the new file" do 
+      expect(dictionary.read_file).to eq(["0.!00!..", "0.!.0!.."])
+    end
 
 
 

@@ -5,16 +5,16 @@ class Dictionary
                        :read_file,
                       :braille_phrase
   def initialize(phrase, file)
-    @file = file
     @braille_array = nil 
     @latin_script = []
     create_latin_letters
     @braille_script = nil
     create_braille_characters
-    latin_to_braille_helper(phrase)
+    transposed = latin_to_braille_helper(phrase)
     open_file = File.open(file, "w")
-    open_file.write(phrase)
+    open_file.write(transposed)
     open_file.close
+    @read_file = File.read(open_file)
   end
 
   def create_latin_letters
@@ -61,11 +61,6 @@ class Dictionary
     @braille_array = translate_l_to_braille(phrase)
     print_phrase(braille_array)
   end 
-
-  # def write_file(phrase, file)    
-  #   file.write(phrase)
-  #   # file.close
-  # end 
 
   def translate_l_to_braille(phrase)
     translated_array = []
