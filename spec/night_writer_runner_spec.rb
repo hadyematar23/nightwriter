@@ -24,7 +24,7 @@ RSpec.describe NightWriterRunner do
       expect(night_writer_runner.message_file.read).to eq("the quick CAPITALIZEbrown fox jumps over the lazy dog is a sentence which has every letter of the alphabet add chars")
       
     end
-
+    # THIS SHOULD FAIL IN THE NEW TESTS AS IT WILL HAVE A BRAILLE MESSAGE THERE 
     it "when the actual method is run, the message.txt file is then turned into downcase and written into the new file" do 
       night_writer_runner.copy_file
       expect(night_writer_runner.read_file.read).to eq("the quick capitalizebrown fox jumps over the lazy dog is a sentence which has every letter of the alphabet add chars")
@@ -36,7 +36,7 @@ RSpec.describe NightWriterRunner do
 
     end
 
-    it "outputs a string that indicates how many characters are in the new_file" do 
+    it "outputs a string that indicates how many characters are in the original message file" do 
       expect(night_writer_runner.run).to eq("Created braille.txt containing 116 characters")
     end
   end 
