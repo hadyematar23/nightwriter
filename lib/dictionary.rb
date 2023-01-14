@@ -82,7 +82,6 @@ class Dictionary
       array.map! do |element|
       element.join
       end
-      require 'pry'; binding.pry
       puts array 
       array
   end

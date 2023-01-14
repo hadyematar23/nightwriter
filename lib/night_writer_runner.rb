@@ -11,7 +11,7 @@ class NightWriterRunner
   def run 
     copy_file
     characters = count_number
-    create_string(characters)
+    string = create_string(characters)
   end
 
   def copy_file
@@ -21,8 +21,7 @@ class NightWriterRunner
   end 
 
   def count_number  
-    lines = File.readlines(@new_file)
-    
+    lines = File.readlines(@message_file)
     joined_lines = lines.join
     joined_lines.delete!"\n"
     length = joined_lines.length
