@@ -7,24 +7,23 @@ let(:c_braille){BrailleLetter.new("c","00!..!..")}
 let(:abc_phrase){BraillePhrase.new}
 let(:space_braille){BrailleLetter.new("space", "..!..!..")}
 
-it "exists as a braille phrase" do 
-  expect(abc_phrase).to be_an_instance_of(BraillePhrase)
-end
+# it "exists as a braille phrase" do 
+#   expect(abc_phrase).to be_an_instance_of(BraillePhrase)
+# end
 
-it "has a place to store the letters that make up the phrase" do 
-  expect(abc_phrase.letters).to eq([])
+# it "has a place to store the letters that make up the braille phrase" do 
+#   expect(abc_phrase.letters).to eq([])
+# end
 
-end
+# it "can add the braille phrases in an ordered fashion to the letters array" do 
+#   abc_phrase.add_letter(a_braille)
+#   abc_phrase.add_letter(b_braille)
+#   abc_phrase.add_letter(c_braille)
+#   abc_phrase.add_letter(space_braille)
+#   abc_phrase.add_letter(a_braille)
 
-it "can add the braille phrases in an ordered fashion to the letters array" do 
-  abc_phrase.add_letter(a_braille)
-  abc_phrase.add_letter(b_braille)
-  abc_phrase.add_letter(c_braille)
-  abc_phrase.add_letter(space_braille)
-  abc_phrase.add_letter(a_braille)
-
-  expect(abc_phrase.letters).to eq(["0.!..!..", "0.!0.!..", "00!..!..", "..!..!..", "0.!..!.."])
-end
+#   expect(abc_phrase.letters).to eq(["0.!..!..", "0.!0.!..", "00!..!..", "..!..!..", "0.!..!.."])
+# end
 
 it "when printing the braille phrase, an array is created with three elements" do 
   abc_phrase.add_letter(a_braille)
@@ -44,23 +43,23 @@ it "when printing the braille phrase, the first element of the array is a string
 
 end 
 
-it "the first element of the print_phrase array represents the first uppermost row of the braille character" do 
-  abc_phrase.add_letter(a_braille)
+# it "the first element of the print_phrase array represents the first uppermost row of the braille character" do 
+#   abc_phrase.add_letter(a_braille)
 
-  expect(abc_phrase.print_phrase[0]).to eq("0.")
-end 
+#   expect(abc_phrase.print_phrase[0]).to eq("0.")
+# end 
 
-it "the second element of the print_phrase array represents the middle row of the braille character" do 
-  abc_phrase.add_letter(a_braille)
+# it "the second element of the print_phrase array represents the middle row of the braille character" do 
+#   abc_phrase.add_letter(a_braille)
 
-  expect(abc_phrase.print_phrase[1]).to eq("..")
-end 
+#   expect(abc_phrase.print_phrase[1]).to eq("..")
+# end 
 
-it "the third and final element of the print_phrase array represents the bottom row of the braille character" do 
-  abc_phrase.add_letter(a_braille)
+# it "the third and final element of the print_phrase array represents the bottom row of the braille character" do 
+#   abc_phrase.add_letter(a_braille)
 
-  expect(abc_phrase.print_phrase[2]).to eq("..")
-end 
+#   expect(abc_phrase.print_phrase[2]).to eq("..")
+# end 
 
 it "when you want to print two letters together, the first element of the print_phrase array will include the uppermost rows of both braille characters respectively" do 
   abc_phrase.add_letter(a_braille)

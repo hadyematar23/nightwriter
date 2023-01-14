@@ -1,11 +1,13 @@
 class Dictionary
           attr_reader :latin_script, 
-                      :braille_script
+                      :braille_script, 
+                      :braille_phrase
   def initialize
     @latin_script = []
     create_latin_letters
     @braille_script = nil
     create_braille_characters
+    # @braille_phrase = []
   end
 
   def create_latin_letters
@@ -44,6 +46,16 @@ class Dictionary
     BrailleLetter.new(" ", "..!..!..")]
   end
 
+  # def add_braille_letter_to_braille_phrase(braille_letter)
+  #   @braille_phrase << braille_letter.representation
+  # end
+
+  def latin_to_braille_helper(phrase)
+    braille_array = translate_l_to_braille(phrase)
+    print_phrase(braille_array)
+  end 
+
+
   def translate_l_to_braille(phrase)
     translated_array = []
 
@@ -56,10 +68,22 @@ class Dictionary
     end
     
   end 
-  translated_array.zip
+  # require 'pry'; binding.pry
+  translated_array
   end
 
+  def print_phrase(braille_array)
+    array = []
+      braille_array.map do |brailee|
+        array << brailee.split("!")
+      end 
+      array = array.transpose
 
-
-
+      array.map! do |element|
+      element.join
+      end
+      require 'pry'; binding.pry
+      puts array 
+      array
+  end
 end
