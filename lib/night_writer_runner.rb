@@ -5,24 +5,27 @@ require_relative './latin_letter'
 class NightWriterRunner
         attr_accessor :message_file, 
                       :new_file
-        attr_reader :read_file
   def initialize(files)
     @files = files 
     @message_file = File.open(files[0], "r")
+    phrase = @message_file.read
     @new_file = File.new(files[1], "w")
+    @new_file.close
+    new_file = @new_file
+    dictionary= Dictionary.new(phrase, new_file)
   end
 
   def run 
-    copy_file
+    # copy_file
     characters = count_number
     string = create_string(characters)
   end
 
-  def copy_file
-    @new_file.write(message_file.read.downcase)
-    @read_file = File.open(@new_file)
-    @new_file.close
-  end 
+  # def copy_file
+  #   @new_file.write(message_file.read.downcase)
+  #   @read_file = File.open(@new_file)
+  #   @new_file.close
+  # end 
 
   def count_number  
     lines = File.readlines(@message_file)

@@ -1,7 +1,8 @@
 require 'spec_helper'
 
 RSpec.describe Dictionary do
-let(:dictionary){Dictionary.new("he", "filepathplaceholder")}
+file = File.new("braille.txt", "w")
+let(:dictionary){Dictionary.new("he", file)}
 let(:a_braille){BrailleLetter.new("a","0.!..!..")}
 let(:b_braille){BrailleLetter.new("b","0.!0.!..")}
 let(:c_braille){BrailleLetter.new("c","00!..!..")}
@@ -84,12 +85,21 @@ let(:space_braille){BrailleLetter.new("space", "..!..!..")}
     end
   end 
 
+  context "printing to the previously created braille.txt file" do 
+    it "can take a phrase and print it to the braille.txt file previously created" do 
+      dictionary
+      expect(dictionary.read_file).to eq("he")
+    end
+  end
+
   context "#integration test of inputting latin phrase and getting braille print to console" do 
     it "takes in a latin phrase and outputs the braille equivalent in an array" do 
       expect(dictionary.braille_array).to eq(["0.!00!..", "0.!.0!.."])
     end
 
-    
+    # it "takes the latin phrase from the original message and prints it in braille on the new file" do 
+    #   expect(dictionary.read_file).to eq("he")
+    # end
 
 
 

@@ -18,18 +18,18 @@ RSpec.describe NightWriterRunner do
     end
   end 
   describe "testing the input from message.txt and its output into braille.txt" do 
-    # the text of message.txt reads as: the quick CAPITALIZEbrown fox jumps over the lazy dog is a sentence which has every letter of the alphabet add chars
+    # # the text of message.txt reads as: the quick CAPITALIZEbrown fox jumps over the lazy dog is a sentence which has every letter of the alphabet add chars
 
-    it "the message.txt file starts out with some input information which can be read" do 
-      expect(night_writer_runner.message_file.read).to eq("the quick CAPITALIZEbrown fox jumps over the lazy dog is a sentence which has every letter of the alphabet add chars")
+    # it "the message.txt file starts out with some input information which can be read" do 
+    #   expect(night_writer_runner.message_file.read).to eq("the quick CAPITALIZEbrown fox jumps over the lazy dog is a sentence which has every letter of the alphabet add chars")
       
-    end
+    # end
     # THIS SHOULD FAIL IN THE NEW TESTS AS IT WILL HAVE A BRAILLE MESSAGE THERE 
-    it "when the actual method is run, the message.txt file is then turned into downcase and written into the new file" do 
-      night_writer_runner.copy_file
-      expect(night_writer_runner.read_file.read).to eq("the quick capitalizebrown fox jumps over the lazy dog is a sentence which has every letter of the alphabet add chars")
+    # it "when the actual method is run, the message.txt file is then turned into downcase and written into the new file" do 
+    #   night_writer_runner.copy_file
+    #   expect(night_writer_runner.read_file.read).to eq("the quick capitalizebrown fox jumps over the lazy dog is a sentence which has every letter of the alphabet add chars")
 
-    end
+    # end
 
     it "takes the information in the original file and puts it into a string that counts the number of characters" do 
       expect(night_writer_runner.count_number).to eq(116)
