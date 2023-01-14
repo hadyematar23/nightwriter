@@ -1,11 +1,11 @@
 require 'spec_helper'
 
 RSpec.describe BraillePhrase do
-let(:a_braille){BrailleLetter.new("a","0.\n..\n..")}
-let(:b_braille){BrailleLetter.new("b","0.\n0.\n..")}
-let(:c_braille){BrailleLetter.new("c","00\n..\n..")}
+let(:a_braille){BrailleLetter.new("a","0.!..!..")}
+let(:b_braille){BrailleLetter.new("b","0.!0.!..")}
+let(:c_braille){BrailleLetter.new("c","00!..!..")}
 let(:abc_phrase){BraillePhrase.new}
-let(:space_braille){BrailleLetter.new("space", "..\n..\n..")}
+let(:space_braille){BrailleLetter.new("space", "..!..!..")}
 
 it "exists as a braille phrase" do 
   expect(abc_phrase).to be_an_instance_of(BraillePhrase)
@@ -23,7 +23,7 @@ it "can add the braille phrases in an ordered fashion to the letters array" do
   abc_phrase.add_letter(space_braille)
   abc_phrase.add_letter(a_braille)
 
-  expect(abc_phrase.letters).to eq(["0.\n..\n..", "0.\n0.\n..", "00\n..\n..", "..\n..\n..", "0.\n..\n.."])
+  expect(abc_phrase.letters).to eq(["0.!..!..", "0.!0.!..", "00!..!..", "..!..!..", "0.!..!.."])
 end
 
 it "when printing the braille phrase, an array is created with three elements" do 
@@ -66,7 +66,10 @@ it "when you want to print two letters together, the first element of the print_
   abc_phrase.add_letter(a_braille)
   abc_phrase.add_letter(b_braille)
 
-  expect(abc_phrase.print_phrase)[0].to eq("0.0.")
+  expect(abc_phrase.print_phrase[0]).to eq("0.0.")
+  expect(abc_phrase.print_phrase[1]).to eq("..0.")
+  expect(abc_phrase.print_phrase[2]).to eq("....")
+  
 end
 
 end

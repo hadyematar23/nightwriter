@@ -11,11 +11,11 @@ class BraillePhrase
   def print_phrase
     array = []
       @letters.map do |brailee|
-        array << brailee.split
+        array << brailee.split("!")
       end 
       
       array = array.transpose
-      
+
       array.map! do |element|
       element.join
       end
