@@ -1,6 +1,7 @@
 require_relative './braille_letter'
 require_relative './dictionary'
 require_relative './latin_letter'
+require_relative './latin_to_braille_translate'
 
 class NightWriterClass
         attr_accessor :message_file, 
@@ -14,7 +15,7 @@ class NightWriterClass
     @new_file = File.new(files[1], "w")
     @new_file.close
     new_file = @new_file
-    dictionary= Dictionary.new(phrase, new_file)
+    translation1 = LatinToBraille.new(phrase, new_file)
     length = count
     print(length)
   end

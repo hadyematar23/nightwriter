@@ -7,22 +7,22 @@ class Dictionary
                        :cut, 
                        :blank_added, 
                       :braille_phrase
-  def initialize(phrase, file)
+  def initialize
     @braille_array = nil 
     @latin_script = []
     create_latin_letters
     @braille_script = nil
     create_braille_characters
-    non_transposed = latin_to_braille_helper(phrase)
-    @transposed = print_phrase(non_transposed)
-    transposed = @transposed 
-    @cut = cut_to_eighty(transposed)
-    cut = @cut
-    @blank_added = add_blank_space(cut)
-    file = File.open(file, "w")
-    file.puts @blank_added
-    file.close
-    @read_file = File.read(file)
+    # non_transposed = latin_to_braille_helper(phrase)
+    # @transposed = print_phrase(non_transposed)
+    # transposed = @transposed 
+    # @cut = cut_to_eighty(transposed)
+    # cut = @cut
+    # @blank_added = add_blank_space(cut)
+    # file = File.open(file, "w")
+    # file.puts @blank_added
+    # file.close
+    # @read_file = File.read(file)
   end
 
   def create_latin_letters
@@ -65,61 +65,61 @@ class Dictionary
   #   @braille_phrase << braille_letter.representation
   # end
 
-  def latin_to_braille_helper(phrase)
-    @braille_array = translate_l_to_braille(phrase)
-    @braille_array
-  end 
+  # def latin_to_braille_helper(phrase)
+  #   @braille_array = translate_l_to_braille(phrase)
+  #   @braille_array
+  # end 
 
-  def translate_l_to_braille(phrase)
-    translated_array = []
+  # def translate_l_to_braille(phrase)
+  #   translated_array = []
 
-    latin_phrase = phrase.split('')
-    latin_phrase.each do |latin_letter|
-      @braille_script.each do |braille_letter|
-        if latin_letter == braille_letter.latin_equivalent
-          translated_array << braille_letter.representation
-        end
-    end
-  end 
-  translated_array
-  end
+  #   latin_phrase = phrase.split('')
+  #   latin_phrase.each do |latin_letter|
+  #     @braille_script.each do |braille_letter|
+  #       if latin_letter == braille_letter.latin_equivalent
+  #         translated_array << braille_letter.representation
+  #       end
+  #   end
+  # end 
+  # translated_array
+  # end
 
-  def print_phrase(braille_array)
-    array = []
-      braille_array.map do |brailee|
-        array << brailee.split("!")
-      end 
-      array = array.transpose
+  # def print_phrase(braille_array)
+  #   array = []
+  #     braille_array.map do |brailee|
+  #       array << brailee.split("!")
+  #     end 
+  #     array = array.transpose
 
-      array.map! do |element|
-      element.join
-      end
-      array
-  end
+  #     array.map! do |element|
+  #     element.join
+  #     end
+  #     array
+  # end
 
-  def cut_to_eighty(transposed)
-    empty_hash = Hash.new{ |hash, key| hash[key] = [] }
-    transposed.each do |element|
-      i = 0
-      while element.chars.length > 80 do 
-        i = i += 1
-        empty_hash[i] << element[0..79]
-        element.slice!(0..79)
-      end
-      if element.chars.length < 80
-        i = i += 1
-        empty_hash[i] << element[0..-1]
-      end 
-    end
-    empty_hash.values
-  end 
+  # def cut_to_eighty(transposed)
+  #   empty_hash = Hash.new{ |hash, key| hash[key] = [] }
+  #   transposed.each do |element|
+  #     i = 0
+  #     while element.chars.length > 80 do 
+  #       i = i += 1
+  #       empty_hash[i] << element[0..79]
+  #       element.slice!(0..79)
+  #     end
+  #     if element.chars.length < 80
+  #       i = i += 1
+  #       empty_hash[i] << element[0..-1]
+  #     end 
+  #   end
+  #   empty_hash.values
+  # end 
 
-  def add_blank_space(array)
-    new_ish = array.flat_map do |individual_array| 
-      [individual_array, [" "]]
-    end
-    new_ish = new_ish[0..-2]
-  end
+  # def add_blank_space(array)
+  #   new_ish = array.flat_map do |individual_array| 
+  #     [individual_array, [" "]]
+  #   end
+  #   new_ish = new_ish[0..-2]
+  # end
 
 
 end
