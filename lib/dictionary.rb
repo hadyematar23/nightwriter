@@ -15,9 +15,8 @@ class Dictionary
     @transposed = print_phrase(non_transposed)
     transposed = @transposed 
     cut = cut_to_eighty(transposed)
-    require 'pry'; binding.pry
     file = File.open(file, "w")
-    file.puts transposed
+    file.puts cut
     file.close
     @read_file = File.read(file)
   end
@@ -65,7 +64,6 @@ class Dictionary
   def latin_to_braille_helper(phrase)
     @braille_array = translate_l_to_braille(phrase)
     @braille_array
-    # print_phrase(braille_array)
   end 
 
   def translate_l_to_braille(phrase)
@@ -96,6 +94,15 @@ class Dictionary
   end
 
   def cut_to_eighty(transposed)
+    empty_hash = Hash.new{ |hash, key| hash[key] = [] }
+    transposed.each do |element|
+      i = 0
+      while element.chars.length > 80 do 
+      i = i += 1
+      empty_hash[i] << element[0..79]
+      element.slice!(0..79)
+      end 
+    end
     require 'pry'; binding.pry
   end
 end

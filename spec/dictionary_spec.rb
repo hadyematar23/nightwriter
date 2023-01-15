@@ -101,11 +101,17 @@ let(:space_braille){BrailleLetter.new("space", "..!..!..")}
     end
 
     it "can cut the braille lines over 80 characters long into only 80 characters long" do 
-      @dictionary.instance_variable_set(:@transposed,[[".00.0...000..0000...0.0.0..000..000.00...00.0000.0..0.0.0.0....00.0...0.0.0.00..000.00...0.0..0.", "0000.0..00..0.......0.00.000.0..0..0....00....0.0....00..000..0000.0..0....0.0...0.000..0.0.....", "0.......0.00....0.....0.0..00.....0.00....000.0.0...0.00..0...0.......0...0000....0.......0....."], [".0000000", "......", "lllllllll"]])
-      expect(dictionary.read_file).to eq("3")
+      dictionary = Dictionary.new("the quick brown fox jumps over the lazy dog is a", file)
+      expect(dictionary.cut_to_eighty(transposed)).to eq([[".00.0...000..0000...0.0.0..000..000.00...00.0000.0..0.0.0.0....00.0...0.0.0.00..", "0000.0..00..0.......0.00.000.0..0..0....00....0.0....00..000..0000.0..0....0.0..", "0.......0.00....0.....0.0..00.....0.00....000.0.0...0.00..0...0.......0...0000.."], ["000.00...0.0..0.", ".0.000..0.0.....", "..0.......0....."]])
     end
 
-    it "if the braille line, after being transposed, is over 80 characters long, it only prints a maximum of 80 dots on each line" do 
+    it "can cut the braille lines over 80 characters long into only 80 characters long" do 
+      dictionary = Dictionary.new("there seems to be a minor — but growing — trend in fanfiction to have the story's title written entirely in lowercase, while the story itself uses correct capitalizations (though stories written in all lowercase is not unheard of). for some reason, these stories tend to be relatively well-written, full of shipping and particularly angsty. archive of our own especially has a lot of fanfics with lowercase titles.", file)
+      expect(dictionary.cut_to_eighty(transposed)).to eq([[".00.0...000..0000...0.0.0..000..000.00...00.0000.0..0.0.0.0....00.0...0.0.0.00..", "0000.0..00..0.......0.00.000.0..0..0....00....0.0....00..000..0000.0..0....0.0..", "0.......0.00....0.....0.0..00.....0.00....000.0.0...0.00..0...0.......0...0000.."], ["000.00...0.0..0.", ".0.000..0.0.....", "..0.......0....."]])
+    end
+
+
+    it "the braille line, after being transposed, is over 80 characters long, it only prints a maximum of 80 dots on each line" do 
       dictionary = Dictionary.new("the quick brown fox jumps over the lazy dog is a", file)
       expect(dictionary.read_file).to eq(".00.0...000..0000...0.0.0..000..000.00...00.0000.0..0.0.0.0....00.0...0.0.0.00..\n0000.0..00..0.......0.00.000.0..0..0....00....0.0....00..000..0000.0..0....0.0..\n0.......0.00....0.....0.0..00.....0.00....000.0.0...0.00..0...0.......0...0000..\n\n000.00...0.0..0.\n.0.000..0.0.....\n..0.......0.....")
     end
