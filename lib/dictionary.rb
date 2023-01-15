@@ -4,6 +4,8 @@ class Dictionary
                        :braille_array,
                        :read_file,
                        :transposed,
+                       :cut, 
+                       :blank_added, 
                       :braille_phrase
   def initialize(phrase, file)
     @braille_array = nil 
@@ -14,9 +16,11 @@ class Dictionary
     non_transposed = latin_to_braille_helper(phrase)
     @transposed = print_phrase(non_transposed)
     transposed = @transposed 
-    cut = cut_to_eighty(transposed)
+    @cut = cut_to_eighty(transposed)
+    cut = @cut
+    @blank_added = add_blank_space(cut)
     file = File.open(file, "w")
-    file.puts cut
+    file.puts @blank_added
     file.close
     @read_file = File.read(file)
   end
@@ -98,11 +102,24 @@ class Dictionary
     transposed.each do |element|
       i = 0
       while element.chars.length > 80 do 
-      i = i += 1
-      empty_hash[i] << element[0..79]
-      element.slice!(0..79)
+        i = i += 1
+        empty_hash[i] << element[0..79]
+        element.slice!(0..79)
+      end
+      if element.chars.length < 80
+        i = i += 1
+        empty_hash[i] << element[0..-1]
       end 
     end
-    require 'pry'; binding.pry
+    empty_hash.values
+  end 
+
+  def add_blank_space(array)
+    new_ish = array.flat_map do |individual_array| 
+      [individual_array, [" "]]
+    end
+    new_ish = new_ish[0..-2]
   end
+
+
 end

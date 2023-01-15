@@ -102,18 +102,22 @@ let(:space_braille){BrailleLetter.new("space", "..!..!..")}
 
     it "can cut the braille lines over 80 characters long into only 80 characters long" do 
       dictionary = Dictionary.new("the quick brown fox jumps over the lazy dog is a", file)
-      expect(dictionary.cut_to_eighty(transposed)).to eq([[".00.0...000..0000...0.0.0..000..000.00...00.0000.0..0.0.0.0....00.0...0.0.0.00..", "0000.0..00..0.......0.00.000.0..0..0....00....0.0....00..000..0000.0..0....0.0..", "0.......0.00....0.....0.0..00.....0.00....000.0.0...0.00..0...0.......0...0000.."], ["000.00...0.0..0.", ".0.000..0.0.....", "..0.......0....."]])
+      expect(dictionary.cut).to eq([[".00.0...000..0000...0.0.0..000..000.00...00.0000.0..0.0.0.0....00.0...0.0.0.00..", "0000.0..00..0.......0.00.000.0..0..0....00....0.0....00..000..0000.0..0....0.0..", "0.......0.00....0.....0.0..00.....0.00....000.0.0...0.00..0...0.......0...0000.."], ["000.00...0.0..0.", ".0.000..0.0.....", "..0.......0....."]])
     end
 
-    it "can cut the braille lines over 80 characters long into only 80 characters long" do 
-      dictionary = Dictionary.new("there seems to be a minor — but growing — trend in fanfiction to have the story's title written entirely in lowercase, while the story itself uses correct capitalizations (though stories written in all lowercase is not unheard of). for some reason, these stories tend to be relatively well-written, full of shipping and particularly angsty. archive of our own especially has a lot of fanfics with lowercase titles.", file)
-      expect(dictionary.cut_to_eighty(transposed)).to eq([[".00.0...000..0000...0.0.0..000..000.00...00.0000.0..0.0.0.0....00.0...0.0.0.00..", "0000.0..00..0.......0.00.000.0..0..0....00....0.0....00..000..0000.0..0....0.0..", "0.......0.00....0.....0.0..00.....0.00....000.0.0...0.00..0...0.......0...0000.."], ["000.00...0.0..0.", ".0.000..0.0.....", "..0.......0....."]])
+    it "can do this even if the length is well over 160 characters" do 
+      dictionary = Dictionary.new("there seems to be a minor — but growing — trend in fanfiction to have the story's title written entirely in lowercase, while the story itself uses correct capitalizations", file)
+      expect(dictionary.cut).to eq([[".00.0.0.0....00.0.00.0...00...0.0...0...00.0000.0.....0.0..0..000.0..0.00000....", "0000.000.0..0..0.0..0...00.0..0..0........0..0.000....0...00..0000.0000..000....", "0.....0.....0.....0.0...0.0.............0...0.0.0.......000.....0.0..0..0......."],
+      [".00.0.0000...000..000.0000.000.0.00.00...00...0.0.0.0....00.0....0.00.0.00.0...0","0000.0.0.0..0..0..0....00.0...000..0.0..00.0..00..0..0..0000.0..0.00.000.00...00", "0.0...0.......0.......0.......0...0.0...0.0.......00....0.......0.0.0.0.000...0."],
+      [".0.00.0....00..0.0.00.00..0.00.0.00.0.0.00...000..0.0..00.0.000..00....00..00.0.", "0.000..0..00000.0000.0.0...0.0000.00.00..0..0..0..0..000.000....0..0..00000.0..0", "..0.0......00...0.0...0.....0.0...0...0.00....0...0.0..0..0.....0......0....0..."],
+      ["...00.0....0.00.0.00...0.0.00.0.00..0..00..0..000.0.0.0.00.0..000.00.0.00.0..00.","..0000.0..0.00.000.0..0.000..00.0.....0..00......00000.0..00......0.0.00..0.0..0","..0.......0.0.0.0.00....0.0...0.....000...0.....0.0.0.....0.......0...0...0...00"],
+      ["0..0.00.00.0", "..000..0.00.", "..0...0.0.0."]])
     end
 
 
-    it "the braille line, after being transposed, is over 80 characters long, it only prints a maximum of 80 dots on each line" do 
+    it "it inserts a blank array between each line of braille so that when it prints to the text file, it will be easier for a visual or non-visual individual to decipher the lines" do 
       dictionary = Dictionary.new("the quick brown fox jumps over the lazy dog is a", file)
-      expect(dictionary.read_file).to eq(".00.0...000..0000...0.0.0..000..000.00...00.0000.0..0.0.0.0....00.0...0.0.0.00..\n0000.0..00..0.......0.00.000.0..0..0....00....0.0....00..000..0000.0..0....0.0..\n0.......0.00....0.....0.0..00.....0.00....000.0.0...0.00..0...0.......0...0000..\n\n000.00...0.0..0.\n.0.000..0.0.....\n..0.......0.....")
+      expect(dictionary.blank_added).to eq([[".00.0...000..0000...0.0.0..000..000.00...00.0000.0..0.0.0.0....00.0...0.0.0.00..", "0000.0..00..0.......0.00.000.0..0..0....00....0.0....00..000..0000.0..0....0.0..", "0.......0.00....0.....0.0..00.....0.00....000.0.0...0.00..0...0.......0...0000.."], [" "], ["000.00...0.0..0.", ".0.000..0.0.....", "..0.......0....."]])
     end
   end
 end 

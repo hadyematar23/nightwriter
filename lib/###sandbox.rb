@@ -1,12 +1,9 @@
-transposed = "the quick brown fox jumps over the lazy dog is a"
+transposed = "there seems to be a minor — but growing — trend in fanfiction to have the story's title written entirely in lowercase, while the story itself uses correct capitalizations"
 
-array = [".00.0...000..0000...0.0.0..000..000.00...00.0000.0..0.0.0.0....00.0...0.0.0.00..", "0000.0..00..0.......0.00.000.0..0..0....00....0.0....00..000..0000.0..0....0.0..", "0.......0.00....0.....0.0..00.....0.00....000.0.0...0.00..0...0.......0...0000.."]
+array = "000.00...0.0..0....00.00.00.00000....00..0000...0.0..0..0.0.0.0.00..0.0..0.00.0."
+
 
 
 require 'pry'; binding.pry
 
 
-# test = ".00.0...000..0000...0.0.0..000..000.00...00.0000.0..0.0.0.0....00.0...0.0.0.00..000.00...0.0..0."
-
-# require 'pry'; binding.pry
-[BRAILLE], [BLANK], [BRAILLE]
