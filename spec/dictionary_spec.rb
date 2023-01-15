@@ -99,6 +99,11 @@ let(:space_braille){BrailleLetter.new("space", "..!..!..")}
       dictionary = Dictionary.new("help", file)
       expect(dictionary.read_file).to eq("0.0.0.00\n00.00.0.\n....0.0.\n")
     end
+
+    it "only prints a maximum of 80 dots on each line" do 
+      dictionary = Dictionary.new("the quick brown fox jumps", file)
+      expect(dictionary.read_file).to eq(".00.0...000..0000...0.0.0..000..000.00..\n0000.0..00..0.......0.00.000.0..0..0....\n0.......0.00....0.....0.0..00.....0.00..\n\n.00.0000.0\n00....0.0.\n..000.0.0.")
+    end
   end
 end 
     

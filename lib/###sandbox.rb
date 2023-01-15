@@ -1,8 +1,3 @@
-input = "hello w"
-
-chars = input.split('')
+sentence = "0.......0.00....0.....0.0..00.....0.00.."
 
 require 'pry'; binding.pry
-
-require 'pry'; binding.prya
-puts "t"
