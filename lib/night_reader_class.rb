@@ -4,23 +4,23 @@ require_relative './latin_letter'
 require_relative './braille_to_latin_translate'
 
 class NightReaderClass
-        attr_accessor :message_file, 
-                      :new_file, 
-                      :phrase
+        attr_accessor :braille_file, 
+                      :original_message_file, 
+                      :braille_phrase
+                      
   def initialize(files)
-    require 'pry'; binding.pry
     @files = files 
     @braille_file = File.open(files[0], "r")
-    @phrase = @message_file.read
-    phrase = @phrase
+    @braille_phrase = @braille_file.read
+    braille_phrase = @braille_phrase 
     @original_message_file = File.new(files[1], "w")
     @original_message_file.close
     original_message_file = @original_message_file
-    translation2 = BrailleToLatin.new(phrase, original_message_file)
+    translation2 = BrailleToLatin.new(braille_phrase, original_message_file)
     length = count
     print(length)
   end
-
+# POSSIBLY MOVE THIS TO THE TRANSLATE CLASS 
   def count
     lines = File.readlines(@original_message_file)
     joined_lines = lines.join

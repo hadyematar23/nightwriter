@@ -14,17 +14,13 @@ RSpec.describe NightReaderClass do
     end 
 
     it "the path of the new file created is what is the second input into the command line, in this case original_message.txt" do 
-      expect(night_reader_class.new_file.path).to eq("original_message.txt")
+      expect(night_reader_class.original_message_file.path).to eq("original_message.txt")
     end
   end 
   describe "testing the input from message.txt and its output into braille.txt" do 
-    # I made some dummy files to make the testing easier. I could not figure out how to stub a file without creating a txt file. I used "help" in English and its equivalent in Braille = "0.0.0.00\n00.00.0.\n....0.0.\n" 
     it "the braille.txt file starts out with some input information which can be read" do
-      file_path = File.expand_path("dummy_testing_files/dummy_braille_info.txt")
-      files = [file_path, "original_message.txt"]
-
       night_reader_class= NightReaderClass.new(files)
-      expect(night_reader_class.phrase).to eq("0.0.0.00\n00.00.0.\n....0.0.\n")
+      expect(night_reader_class.braille_phrase).to eq(".00.0...000..0000...0.0.0..000..000.00...00.0000.0..0.0.0.0....00.0...0.0.0.00..\n0000.0..00..0.......0.00.000.0..0..0....00....0.0....00..000..0000.0..0....0.0..\n0.......0.00....0.....0.0..00.....0.00....000.0.0...0.00..0...0.......0...0000..\n \n000.00...0.0..0....00.00.00.00000....00..0000...0.0..0..0.0.0.0.00..0.0..0.00.0.\n.0.000..0.0.......0..0.000.0.0...0..00000...00..00..0....00..000.0..0..00000.000\n..0.......0.......0...0.0...0........0..............0.....00..0.00..0...0.0...0.\n \n..0.00...00.0...0.0.000.0.0.0..0\n...00...0000.0....0.0.00..0..000\n..0.....0.........0.0.........0.\n")
     end
   end 
 

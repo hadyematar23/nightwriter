@@ -3,21 +3,17 @@ class LatinToBraille
   def initialize(phrase, file_to_be_written_into)
     @dictionary = Dictionary.new
     non_transposed = translate_l_to_braille(phrase)
-    @transposed = print_phrase(non_transposed)
-    transposed = @transposed 
-    @cut = cut_to_eighty(transposed)
-    cut = @cut
-    @blank_added = add_blank_space(cut)
+    transposed = print_phrase(non_transposed)
+    cut = cut_to_eighty(transposed)
+    blank_added = add_blank_space(cut)
     @file = File.open(file_to_be_written_into, "w")
-    @file.puts @blank_added
+    @file.puts blank_added
     @file.close
-    
   end
 
   def read_file  
     File.read(@file)
   end 
-
 
   def translate_l_to_braille(phrase)
     translated_array = []

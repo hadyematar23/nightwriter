@@ -1,12 +1,7 @@
 require 'spec_helper'
 
 RSpec.describe Dictionary do
-let(:file){File.open("braille.txt", "w")}
-let(:dictionary){Dictionary.new("he", file)}
-let(:a_braille){BrailleLetter.new("a","0.!..!..")}
-let(:b_braille){BrailleLetter.new("b","0.!0.!..")}
-let(:c_braille){BrailleLetter.new("c","00!..!..")}
-let(:space_braille){BrailleLetter.new("space", "..!..!..")}
+let(:dictionary){Dictionary.new}
 
   it "exists as an object" do 
     expect(dictionary).to be_an_instance_of(Dictionary)
@@ -39,8 +34,5 @@ let(:space_braille){BrailleLetter.new("space", "..!..!..")}
   
   #   expect(dictionary.braille_phrase).to eq(["0.!..!..", "0.!0.!..", "00!..!..", "..!..!..", "0.!..!.."])
   # end
-
-  
-  end
 end 
     
