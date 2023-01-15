@@ -4,11 +4,13 @@ require_relative './latin_letter'
 
 class NightWriterRunner
         attr_accessor :message_file, 
-                      :new_file
+                      :new_file, 
+                      :phrase
   def initialize(files)
     @files = files 
     @message_file = File.open(files[0], "r")
-    phrase = @message_file.read
+    @phrase = @message_file.read
+    phrase = @phrase
     @new_file = File.new(files[1], "w")
     @new_file.close
     new_file = @new_file
@@ -30,7 +32,6 @@ class NightWriterRunner
   def create_string(characters)
     p "Created #{@files[1]} containing #{characters} characters"
   end 
-
 
 if $PROGRAM_NAME == __FILE__ 
   NightWriterRunner.new(ARGV).run
