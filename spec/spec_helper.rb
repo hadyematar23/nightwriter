@@ -1,8 +1,8 @@
 require 'simplecov'
 SimpleCov.start
 
-require './night_writer_runner.rb'
 require './braille_letter'
 require './dictionary'
 require './latin_letter'
-require './night_reader_runner.rb'
+require './night_writer_class'
+require './night_reader_class'
