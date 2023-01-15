@@ -13,6 +13,9 @@ class Dictionary
     create_braille_characters
     non_transposed = latin_to_braille_helper(phrase)
     @transposed = print_phrase(non_transposed)
+    transposed = @transposed 
+    cut = cut_to_eighty(transposed)
+    require 'pry'; binding.pry
     file = File.open(file, "w")
     file.puts transposed
     file.close
@@ -90,5 +93,9 @@ class Dictionary
       element.join
       end
       array
+  end
+
+  def cut_to_eighty(transposed)
+    require 'pry'; binding.pry
   end
 end

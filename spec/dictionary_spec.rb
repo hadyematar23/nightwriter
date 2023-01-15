@@ -100,7 +100,12 @@ let(:space_braille){BrailleLetter.new("space", "..!..!..")}
       expect(dictionary.read_file).to eq("0.0.0.00\n00.00.0.\n....0.0.\n")
     end
 
-    it "only prints a maximum of 80 dots on each line" do 
+    it "can cut the braille lines over 80 characters long into only 80 characters long" do 
+      @dictionary.instance_variable_set(:@transposed,[[".00.0...000..0000...0.0.0..000..000.00...00.0000.0..0.0.0.0....00.0...0.0.0.00..000.00...0.0..0.", "0000.0..00..0.......0.00.000.0..0..0....00....0.0....00..000..0000.0..0....0.0...0.000..0.0.....", "0.......0.00....0.....0.0..00.....0.00....000.0.0...0.00..0...0.......0...0000....0.......0....."], [".0000000", "......", "lllllllll"]])
+      expect(dictionary.read_file).to eq("3")
+    end
+
+    it "if the braille line, after being transposed, is over 80 characters long, it only prints a maximum of 80 dots on each line" do 
       dictionary = Dictionary.new("the quick brown fox jumps over the lazy dog is a", file)
       expect(dictionary.read_file).to eq(".00.0...000..0000...0.0.0..000..000.00...00.0000.0..0.0.0.0....00.0...0.0.0.00..\n0000.0..00..0.......0.00.000.0..0..0....00....0.0....00..000..0000.0..0....0.0..\n0.......0.00....0.....0.0..00.....0.00....000.0.0...0.00..0...0.......0...0000..\n\n000.00...0.0..0.\n.0.000..0.0.....\n..0.......0.....")
     end
