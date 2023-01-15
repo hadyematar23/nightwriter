@@ -2,7 +2,7 @@ require_relative './braille_letter'
 require_relative './dictionary'
 require_relative './latin_letter'
 
-class NightWriterRunner
+class NightReaderRunner
         attr_accessor :message_file, 
                       :new_file, 
                       :phrase
