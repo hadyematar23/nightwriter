@@ -22,39 +22,30 @@ class BrailleToLatin
     split = braille_phrase.split("\n")
 
     if split.count == 3
-      empty_hash = Hash.new{ |hash, key| hash[key] = [] }
-      split.each do |element|
-        i = 0 
-        while element.chars.length > 0 do   
-          i = i + 1
-        empty_hash[i] << element[0..1]
-        element = element[2..-1]
-        end
-      end 
-      return empty_hash.values.map {|array| array.join}
-
+      translate_method(split)
+      
     elsif split.count >3 
       phrase = []
-      empty_hash = Hash.new{ |hash, key| hash[key] = [] }
       split = split - [" "]
       split = split.each_slice(3).to_a
-
       split.each do |one_line_array|
-          one_line_array.each do |element|
-            i = 0 
-          while element.chars.length > 0 do   
-            i = i + 1
-            empty_hash[i] << element[0..1]
-            element = element[2..-1]
-          end
-        end 
-       phrase << empty_hash.values.map {|array| array.join}
-       phrase = phrase.flatten
-       empty_hash = Hash.new{ |hash, key| hash[key] = [] }
+        phrase << translate_method(one_line_array)
       end
-      return phrase
+      return phrase.flatten
     end
+  end
 
+  def translate_method(argument) 
+    empty_hash = Hash.new{ |hash, key| hash[key] = [] }
+    argument.each do |element|
+      i = 0 
+      while element.chars.length > 0 do   
+        i = i + 1
+      empty_hash[i] << element[0..1]
+      element = element[2..-1]
+      end
+    end 
+    empty_hash.values.map {|array| array.join}
   end
 
   def iterate_to_latin(representations)
