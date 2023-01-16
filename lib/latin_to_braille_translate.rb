@@ -1,8 +1,11 @@
 require_relative './braille_letter'
 require_relative './dictionary'
 require_relative './latin_letter'
+require_relative './printable_module'
+require_relative './translate'
 
-class LatinToBraille
+class LatinToBraille < Translate
+  include Printable
 
   def initialize(files)
     @dictionary = Dictionary.new
@@ -15,12 +18,6 @@ class LatinToBraille
     print_to_txt_file(translated_phrase, files[1])
     print_to_console(@message_file, files[1])
   end 
-
-  def print_to_txt_file(translated_phrase, file) #NOT TESTED
-    new_file = File.new(file, "w")
-    new_file.puts translated_phrase
-    new_file.close
-  end 
   
   def print_to_console(file, file_name)#TESTED
     length = count(file)
@@ -30,13 +27,6 @@ class LatinToBraille
   def print(length, file_name) #tested
     p "Created #{file_name} containing #{length} characters"
   end
-
-  def count(file) #tested
-    lines = File.readlines(file)
-    joined_lines = lines.join
-    joined_lines.delete!"\n"
-    joined_lines.length
-end
 
   def translate_phrase(phrase_to_translate) #tested
     non_transposed = translate_l_to_braille(phrase_to_translate)

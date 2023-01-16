@@ -1,10 +1,8 @@
 class Dictionary
           attr_reader :latin_script, 
-                      :braille_script,
-                       :braille_array
+                      :braille_script
                                       
   def initialize
-    @braille_array = nil 
     @latin_script = []
     create_latin_letters
     @braille_script = nil

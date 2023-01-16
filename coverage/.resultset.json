@@ -20,9 +20,7 @@
           1,
           null,
           null,
-          null,
           1,
-          36,
           36,
           36,
           36,
@@ -82,7 +80,10 @@
           1,
           1,
           1,
+          1,
+          1,
           null,
+          1,
           1,
           null,
           1,
@@ -100,22 +101,9 @@
           1,
           14,
           14,
-          14,
           null,
           null,
           1,
-          14,
-          14,
-          null,
-          null,
-          1,
-          15,
-          null,
-          null,
-          1,
-          15,
-          15,
-          15,
           15,
           null,
           null,
@@ -182,12 +170,43 @@
           null
         ]
       },
+      "/Users/hadymatar/turing_work/Mod1/night_writer_hady/lib/printable_module.rb": {
+        "lines": [
+          1,
+          null,
+          1,
+          33,
+          33,
+          33,
+          null,
+          null,
+          1,
+          36,
+          36,
+          36,
+          36,
+          null,
+          null
+        ]
+      },
+      "/Users/hadymatar/turing_work/Mod1/night_writer_hady/lib/translate.rb": {
+        "lines": [
+          1,
+          1,
+          null,
+          null,
+          null
+        ]
+      },
       "/Users/hadymatar/turing_work/Mod1/night_writer_hady/lib/latin_to_braille_translate.rb": {
         "lines": [
           1,
           1,
           1,
+          1,
+          1,
           null,
+          1,
           1,
           null,
           1,
@@ -203,25 +222,11 @@
           null,
           null,
           1,
-          19,
-          19,
-          19,
-          null,
-          null,
-          1,
-          null,
           20,
           20,
           null,
           null,
           1,
-          21,
-          null,
-          null,
-          1,
-          21,
-          21,
-          21,
           21,
           null,
           null,
@@ -581,6 +586,6 @@
         ]
       }
     },
-    "timestamp": 1673899988
+    "timestamp": 1673900833
   }
 }
