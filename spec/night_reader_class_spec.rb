@@ -17,13 +17,12 @@ RSpec.describe NightReaderClass do
       expect(night_reader_class.original_message_file.path).to eq("original_message.txt")
     end
   end 
-  describe "testing the input from message.txt and its output into braille.txt" do 
     it "the braille.txt file starts out with some input information which can be read" do
       # if input is       the cat 
       night_reader_class= NightReaderClass.new(files)
       expect(night_reader_class.braille_phrase).to eq(".00.0...000..0\n0000.0......00\n0...........0.\n")
     end
-  end 
+   
 
   # describe "converting the braille to Latin script" do 
   #   it "after converting the braille in the first file of ARGV to latin script, will print the latin script to the second folder (ARGV[1])" do 

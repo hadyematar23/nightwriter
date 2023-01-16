@@ -14,7 +14,7 @@
       <img src="./assets/0.12.3/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" class="hide">
-      <div class="timestamp">Generated <abbr class="timeago" title="2023-01-15T18:17:33-07:00">2023-01-15T18:17:33-07:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2023-01-15T19:55:09-07:00">2023-01-15T19:55:09-07:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
@@ -23,14 +23,14 @@
     <span class="group_name">All Files</span>
     (<span class="covered_percent">
       <span class="red">
-  52.78%
+  52.8%
 </span>
 
      </span>
      covered at
      <span class="covered_strength">
        <span class="green">
-         1.88
+         54.88
        </span>
     </span> hits/line
     )
@@ -43,11 +43,11 @@
   </div>
 
   <div class="t-line-summary">
-    <b>144</b> relevant lines,
-    <span class="green"><b>76</b> lines covered</span> and
-    <span class="red"><b>68</b> lines missed. </span>
+    <b>161</b> relevant lines,
+    <span class="green"><b>85</b> lines covered</span> and
+    <span class="red"><b>76</b> lines missed. </span>
     (<span class="red">
-  52.78%
+  52.8%
 </span>
 )
   </div>
@@ -83,12 +83,12 @@
         
           <tr class="t-file">
             <td class="strong t-file__name"><a href="#f7ebad8d642833eca74a80784050b2607e474d74" class="src_link" title="lib/braille_to_latin_translate.rb">lib/braille_to_latin_translate.rb</a></td>
-            <td class="green strong cell--number t-file__coverage">100.00 %</td>
-            <td class="cell--number">47</td>
-            <td class="cell--number">29</td>
-            <td class="cell--number">29</td>
-            <td class="cell--number">0</td>
-            <td class="cell--number">4.10</td>
+            <td class="yellow strong cell--number t-file__coverage">82.61 %</td>
+            <td class="cell--number">72</td>
+            <td class="cell--number">46</td>
+            <td class="cell--number">38</td>
+            <td class="cell--number">8</td>
+            <td class="cell--number">188.78</td>
             
           </tr>
         
@@ -298,8 +298,8 @@
   <div class="header">
     <h3>lib/braille_to_latin_translate.rb</h3>
     <h4>
-      <span class="green">
-  100.0%
+      <span class="yellow">
+  82.61%
 </span>
 
       lines covered
@@ -308,9 +308,9 @@
     
 
     <div class="t-line-summary">
-      <b>29</b> relevant lines.
-      <span class="green"><b>29</b> lines covered</span> and
-      <span class="red"><b>0</b> lines missed.</span>
+      <b>46</b> relevant lines.
+      <span class="green"><b>38</b> lines covered</span> and
+      <span class="red"><b>8</b> lines missed.</span>
     </div>
 
     
@@ -398,8 +398,8 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="8">
-            <span class="hits">1</span>
+          <li class="covered" data-hits="89" data-linenumber="8">
+            <span class="hits">89</span>
             
 
             
@@ -409,8 +409,8 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="9">
-            <span class="hits">1</span>
+          <li class="covered" data-hits="89" data-linenumber="9">
+            <span class="hits">89</span>
             
 
             
@@ -420,8 +420,8 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="27" data-linenumber="10">
-            <span class="hits">27</span>
+          <li class="covered" data-hits="2403" data-linenumber="10">
+            <span class="hits">2403</span>
             
 
             
@@ -431,8 +431,8 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="27" data-linenumber="11">
-            <span class="hits">27</span>
+          <li class="covered" data-hits="2403" data-linenumber="11">
+            <span class="hits">2403</span>
             
 
             
@@ -453,8 +453,8 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="13">
-            <span class="hits">1</span>
+          <li class="covered" data-hits="89" data-linenumber="13">
+            <span class="hits">89</span>
             
 
             
@@ -563,13 +563,13 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="2" data-linenumber="23">
-            <span class="hits">2</span>
+          <li class="never" data-hits="" data-linenumber="23">
+            
             
 
             
 
-            <code class="ruby">    empty_hash = Hash.new{ |hash, key| hash[key] = [] }</code>
+            <code class="ruby"></code>
           </li>
         </div>
       
@@ -580,188 +580,89 @@
 
             
 
-            <code class="ruby">    split.each do |element|</code>
+            <code class="ruby">    if split.count == 3</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="3" data-linenumber="25">
-            <span class="hits">3</span>
+          <li class="missed" data-hits="0" data-linenumber="25">
+            
             
 
             
 
-            <code class="ruby">      i = 0 </code>
+            <code class="ruby">      empty_hash = Hash.new{ |hash, key| hash[key] = [] }</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="3" data-linenumber="26">
-            <span class="hits">3</span>
+          <li class="missed" data-hits="0" data-linenumber="26">
+            
             
 
             
 
-            <code class="ruby">      while element.chars.length &gt; 0 do   </code>
+            <code class="ruby">      split.each do |element|</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="3" data-linenumber="27">
-            <span class="hits">3</span>
+          <li class="missed" data-hits="0" data-linenumber="27">
+            
             
 
             
 
-            <code class="ruby">        i = i + 1</code>
+            <code class="ruby">        i = 0 </code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="3" data-linenumber="28">
-            <span class="hits">3</span>
+          <li class="missed" data-hits="0" data-linenumber="28">
+            
             
 
             
 
-            <code class="ruby">      empty_hash[i] &lt;&lt; element[0..1]</code>
+            <code class="ruby">        while element.chars.length &gt; 0 do   </code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="3" data-linenumber="29">
-            <span class="hits">3</span>
+          <li class="missed" data-hits="0" data-linenumber="29">
+            
             
 
             
 
-            <code class="ruby">      element = element[2..-1]</code>
+            <code class="ruby">          i = i + 1</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="30">
+          <li class="missed" data-hits="0" data-linenumber="30">
             
             
 
             
 
-            <code class="ruby">      end</code>
+            <code class="ruby">        empty_hash[i] &lt;&lt; element[0..1]</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="31">
+          <li class="missed" data-hits="0" data-linenumber="31">
             
             
 
             
 
-            <code class="ruby">    end </code>
+            <code class="ruby">        element = element[2..-1]</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="2" data-linenumber="32">
-            <span class="hits">2</span>
-            
-
-            
-
-            <code class="ruby">    return empty_hash.values.map {|array| array.join}</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="33">
-            
-            
-
-            
-
-            <code class="ruby">  end</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="34">
-            
-            
-
-            
-
-            <code class="ruby"></code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="1" data-linenumber="35">
-            <span class="hits">1</span>
-            
-
-            
-
-            <code class="ruby">  def iterate_to_latin(representations)</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="1" data-linenumber="36">
-            <span class="hits">1</span>
-            
-
-            
-
-            <code class="ruby">    latin_letter_array = []</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="1" data-linenumber="37">
-            <span class="hits">1</span>
-            
-
-            
-
-            <code class="ruby">    representations.each do |representation| </code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="1" data-linenumber="38">
-            <span class="hits">1</span>
-            
-
-            
-
-            <code class="ruby">      modify_script.each do |braille_letter_object|</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="27" data-linenumber="39">
-            <span class="hits">27</span>
-            
-
-            
-
-            <code class="ruby">        if representation == braille_letter_object.representation</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="1" data-linenumber="40">
-            <span class="hits">1</span>
-            
-
-            
-
-            <code class="ruby">          latin_letter_array &lt;&lt; braille_letter_object.latin_equivalent</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="41">
+          <li class="never" data-hits="" data-linenumber="32">
             
             
 
@@ -772,51 +673,29 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="42">
+          <li class="never" data-hits="" data-linenumber="33">
             
             
 
             
 
-            <code class="ruby">      end</code>
+            <code class="ruby">      end </code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="43">
+          <li class="missed" data-hits="0" data-linenumber="34">
             
             
 
             
 
-            <code class="ruby">    end</code>
+            <code class="ruby">      return empty_hash.values.map {|array| array.join}</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="44">
-            <span class="hits">1</span>
-            
-
-            
-
-            <code class="ruby">    return latin_letter_array.join </code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="45">
-            
-            
-
-            
-
-            <code class="ruby">  end</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="46">
+          <li class="never" data-hits="" data-linenumber="35">
             
             
 
@@ -827,7 +706,403 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="47">
+          <li class="covered" data-hits="1" data-linenumber="36">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    elsif split.count &gt;3 </code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="37">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">      phrase = []</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="41" data-linenumber="38">
+            <span class="hits">41</span>
+            
+
+            
+
+            <code class="ruby">      empty_hash = Hash.new{ |hash, key| hash[key] = [] }</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="39">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">      split = split - [&quot; &quot;]</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="40">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">      split = split.each_slice(3).to_a</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="41">
+            
+            
+
+            
+
+            <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="42">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">      split.each do |one_line_array|</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="3" data-linenumber="43">
+            <span class="hits">3</span>
+            
+
+            
+
+            <code class="ruby">          one_line_array.each do |element|</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="9" data-linenumber="44">
+            <span class="hits">9</span>
+            
+
+            
+
+            <code class="ruby">            i = 0 </code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="9" data-linenumber="45">
+            <span class="hits">9</span>
+            
+
+            
+
+            <code class="ruby">          while element.chars.length &gt; 0 do   </code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="267" data-linenumber="46">
+            <span class="hits">267</span>
+            
+
+            
+
+            <code class="ruby">            i = i + 1</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="267" data-linenumber="47">
+            <span class="hits">267</span>
+            
+
+            
+
+            <code class="ruby">            empty_hash[i] &lt;&lt; element[0..1]</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="267" data-linenumber="48">
+            <span class="hits">267</span>
+            
+
+            
+
+            <code class="ruby">            element = element[2..-1]</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="49">
+            
+            
+
+            
+
+            <code class="ruby">          end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="50">
+            
+            
+
+            
+
+            <code class="ruby">        end </code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="92" data-linenumber="51">
+            <span class="hits">92</span>
+            
+
+            
+
+            <code class="ruby">       phrase &lt;&lt; empty_hash.values.map {|array| array.join}</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="3" data-linenumber="52">
+            <span class="hits">3</span>
+            
+
+            
+
+            <code class="ruby">       phrase = phrase.flatten</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="52" data-linenumber="53">
+            <span class="hits">52</span>
+            
+
+            
+
+            <code class="ruby">       empty_hash = Hash.new{ |hash, key| hash[key] = [] }</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="54">
+            
+            
+
+            
+
+            <code class="ruby">      end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="55">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">      return phrase</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="56">
+            
+            
+
+            
+
+            <code class="ruby">    end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="57">
+            
+            
+
+            
+
+            <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="58">
+            
+            
+
+            
+
+            <code class="ruby">  end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="59">
+            
+            
+
+            
+
+            <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="60">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">  def iterate_to_latin(representations)</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="61">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    latin_letter_array = []</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="62">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    representations.each do |representation| </code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="89" data-linenumber="63">
+            <span class="hits">89</span>
+            
+
+            
+
+            <code class="ruby">      modify_script.each do |braille_letter_object|</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="2403" data-linenumber="64">
+            <span class="hits">2403</span>
+            
+
+            
+
+            <code class="ruby">        if representation == braille_letter_object.representation</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="89" data-linenumber="65">
+            <span class="hits">89</span>
+            
+
+            
+
+            <code class="ruby">          latin_letter_array &lt;&lt; braille_letter_object.latin_equivalent</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="66">
+            
+            
+
+            
+
+            <code class="ruby">        end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="67">
+            
+            
+
+            
+
+            <code class="ruby">      end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="68">
+            
+            
+
+            
+
+            <code class="ruby">    end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="69">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    return latin_letter_array.join </code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="70">
+            
+            
+
+            
+
+            <code class="ruby">  end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="71">
+            
+            
+
+            
+
+            <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="72">
             
             
 
