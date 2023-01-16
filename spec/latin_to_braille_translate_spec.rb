@@ -1,17 +1,61 @@
 require 'spec_helper'
 
 RSpec.describe LatinToBraille do
-let(:file){File.open("braille.txt", "w")}
+let(:file1){File.open(files[0], "r")}
+let(:file2){File.new(files[1], "w")}
+let(:files){[file1, file2]}
 let(:dictionary){Dictionary.new}
 let(:a_braille){BrailleLetter.new("a","0.!..!..")}
 let(:b_braille){BrailleLetter.new("b","0.!0.!..")}
 let(:c_braille){BrailleLetter.new("c","00!..!..")}
 let(:space_braille){BrailleLetter.new("space", "..!..!..")}
+let(:files){["message.txt", "braille.txt"]}
+let(:latin_to_braille_translate){LatinToBraille.new(files)}
+# let(:night_writer_class){NightWriterClass.new(files)}
+
+
+describe "the initialize portion" do 
+  it "exists as an object of latintobrailletranslate" do 
+    latin_to_braille_translate
+    expect(latin_to_braille_translate).to be_an_instance_of(LatinToBraille)
+  end
+
+  it "the file that is read from, in this case message.txt, is a file object and exists" do 
+    expect(Pathname.new('message.txt')).to exist
+  end
+
+  # it "creates a new file into which we will be writing the object" do 
+  #   expect(night_writer_class.new_file).to be_an_instance_of(File)
+  # end 
+
+  # it "the path of the new file created is what is the second input into the command line, in this case braille2.txt" do 
+  #   expect(night_writer_class.new_file.path).to eq("braille.txt")
+  # end
+end 
+describe "testing the input from message.txt and its output into braille.txt" do 
+  it "takes the information in the original file and puts it into a string that counts the number of characters" do 
+    
+    file1= File.open('dummy_testing_files/dummy_latin_text.txt')
+    expect(latin_to_braille_translate.count(file1)).to eq(29)
+
+  end
+
+  it "outputs a string that indicates how many characters are in the original message file" do 
+    length = 96
+    file_name = files[1]
+    expect(latin_to_braille_translate.print(length, file_name)).to eq("Created braille.txt containing 96 characters")
+  end
+
+  it "does an integration test to make sure the entire part works together" do 
+    file1= File.open('dummy_testing_files/dummy_latin_text.txt')
+    file_name = files[1]
+    expect(latin_to_braille_translate.print_to_console(file1, file_name)).to eq("Created braille.txt containing 29 characters")
+  end
+end 
 
 it "when input of a Latin letter is provided it will return the braille equivalent" do 
   phrase = "a"
-  latin_to_braille_translate = LatinToBraille.new(phrase, file)
-  expect(latin_to_braille_translate.translate_l_to_braille(phrase)).to eq(["0.!..!.."])
+  expect(latin_to_braille_translate.translate_phrase(phrase)).to eq(["0.!..!.."])
 end
 
 it "when input of a Latin phrase is provided, it will return the braille equivalent of the phrase" do 

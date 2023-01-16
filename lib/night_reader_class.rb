@@ -15,6 +15,4 @@ class NightReaderClass
     braille_phrase = @braille_phrase 
     translation2 = BrailleToLatin.new(braille_phrase, files[1])
   end
-
-
 end 

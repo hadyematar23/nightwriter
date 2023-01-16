@@ -1,15 +1,50 @@
+require_relative './braille_letter'
+require_relative './dictionary'
+require_relative './latin_letter'
+require_relative './latin_to_braille_translate'
+
 class LatinToBraille
 
-  def initialize(phrase, file_to_be_written_into)
+  def initialize(files)
+    message_file = File.open(files[0], "r")
+    phrase = message_file.read
     @dictionary = Dictionary.new
+    translated_phrase = translate_phrase(phrase)
+    print_to_txt_file(translated_phrase, files[1])
+    print_to_console(message_file, files[1])
+
+  end
+
+  def print_to_txt_file(translated_phrase, file)
+    new_file = File.new(file, "w")
+    new_file.puts translated_phrase
+    new_file.close
+  end 
+
+  def print_to_console(file, file_name)
+    length = count(file)
+    print(length, file_name)
+  end 
+
+  def count(file)
+
+      lines = File.readlines(file)
+      joined_lines = lines.join
+      joined_lines.delete!"\n"
+      joined_lines.length
+
+  end
+  
+  def print(length, file_name) 
+    p "Created #{file_name} containing #{length} characters"
+  end
+
+  def translate_phrase(phrase)
     non_transposed = translate_l_to_braille(phrase)
     transposed = print_phrase(non_transposed)
     cut = cut_to_eighty(transposed)
     blank_added = add_blank_space(cut)
-    @file = File.open(file_to_be_written_into, "w")
-    @file.puts blank_added
-    @file.close
-  end
+  end 
 
   def read_file  
     File.read(@file)
@@ -65,4 +100,6 @@ class LatinToBraille
     end
     new_ish = new_ish[0..-2]
   end
+
+
 end
