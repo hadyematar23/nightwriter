@@ -8,25 +8,14 @@ class LatinToBraille < Translate
   include Printable
 
   def initialize(files)
-    @dictionary = Dictionary.new
-    @message_file = File.open(files[0], "r")
-    translate_and_print(files)
+    super
   end
 
-  def translate_and_print(files) #not tested
+  def translate_and_print(files) 
     translated_phrase = translate_phrase(@message_file.read)
     print_to_txt_file(translated_phrase, files[1])
     print_to_console(@message_file, files[1])
   end 
-  
-  def print_to_console(file, file_name)#TESTED
-    length = count(file)
-    print(length, file_name)
-  end 
-  
-  def print(length, file_name) #tested
-    p "Created #{file_name} containing #{length} characters"
-  end
 
   def translate_phrase(phrase_to_translate) #tested
     non_transposed = translate_l_to_braille(phrase_to_translate)
