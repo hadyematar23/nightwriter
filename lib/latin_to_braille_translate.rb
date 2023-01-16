@@ -1,59 +1,53 @@
 require_relative './braille_letter'
 require_relative './dictionary'
 require_relative './latin_letter'
-require_relative './latin_to_braille_translate'
 
 class LatinToBraille
 
   def initialize(files)
-    message_file = File.open(files[0], "r")
-    phrase = message_file.read
     @dictionary = Dictionary.new
-    translated_phrase = translate_phrase(phrase)
-    print_to_txt_file(translated_phrase, files[1])
-    print_to_console(message_file, files[1])
-
+    @message_file = File.open(files[0], "r")
+    translate_and_print(files)
   end
 
-  def print_to_txt_file(translated_phrase, file)
+  def translate_and_print(files) #not tested
+    translated_phrase = translate_phrase(@message_file.read)
+    print_to_txt_file(translated_phrase, files[1])
+    print_to_console(@message_file, files[1])
+  end 
+
+  def print_to_txt_file(translated_phrase, file) #NOT TESTED
     new_file = File.new(file, "w")
     new_file.puts translated_phrase
     new_file.close
   end 
-
-  def print_to_console(file, file_name)
+  
+  def print_to_console(file, file_name)#TESTED
     length = count(file)
     print(length, file_name)
   end 
-
-  def count(file)
-
-      lines = File.readlines(file)
-      joined_lines = lines.join
-      joined_lines.delete!"\n"
-      joined_lines.length
-
-  end
   
-  def print(length, file_name) 
+  def print(length, file_name) #tested
     p "Created #{file_name} containing #{length} characters"
   end
 
-  def translate_phrase(phrase)
-    non_transposed = translate_l_to_braille(phrase)
-    transposed = print_phrase(non_transposed)
+  def count(file) #tested
+    lines = File.readlines(file)
+    joined_lines = lines.join
+    joined_lines.delete!"\n"
+    joined_lines.length
+end
+
+  def translate_phrase(phrase_to_translate) #tested
+    non_transposed = translate_l_to_braille(phrase_to_translate)
+    transposed = transpose_phrase(non_transposed)
     cut = cut_to_eighty(transposed)
     blank_added = add_blank_space(cut)
   end 
 
-  def read_file  
-    File.read(@file)
-  end 
-
-  def translate_l_to_braille(phrase)
+  def translate_l_to_braille(phrase_to_translate) #TESTED
     translated_array = []
-
-    latin_phrase = phrase.split('')
+    latin_phrase = phrase_to_translate.split('')
     latin_phrase.each do |latin_letter|
       @dictionary.braille_script.each do |braille_letter|
         if latin_letter == braille_letter.latin_equivalent
@@ -64,20 +58,14 @@ class LatinToBraille
   translated_array 
   end
 
-  def print_phrase(braille_array)
-    array = []
-      braille_array.map do |brailee|
-        array << brailee.split("!")
-      end 
+  def transpose_phrase(braille_array) #tested
+      array = []
+      braille_array.map {|brailee| array << brailee.split("!") }
       array = array.transpose
-
-      array.map! do |element|
-      element.join
-      end
-      array
+      array.map! {|element| element.join}
   end
 
-  def cut_to_eighty(transposed)
+  def cut_to_eighty(transposed) #TESTED
     empty_hash = Hash.new{ |hash, key| hash[key] = [] }
     transposed.each do |element|
       i = 0
@@ -94,12 +82,8 @@ class LatinToBraille
     empty_hash.values
   end 
 
-  def add_blank_space(array)
-    new_ish = array.flat_map do |individual_array| 
-      [individual_array, [" "]]
-    end
+  def add_blank_space(array) #TESTED
+    new_ish = array.flat_map {|individual_array| [individual_array, [" "]]}
     new_ish = new_ish[0..-2]
   end
-
-
 end
