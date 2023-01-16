@@ -13,6 +13,7 @@ class NightReaderClass
     @braille_file = File.open(files[0], "r")
     @braille_phrase = @braille_file.read
     braille_phrase = @braille_phrase 
+    require 'pry'; binding.pry
     @original_message_file = File.new(files[1], "w")
     @original_message_file.close
     original_message_file = @original_message_file

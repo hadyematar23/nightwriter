@@ -19,8 +19,9 @@ RSpec.describe NightReaderClass do
   end 
   describe "testing the input from message.txt and its output into braille.txt" do 
     it "the braille.txt file starts out with some input information which can be read" do
+      # if input is       the cat 
       night_reader_class= NightReaderClass.new(files)
-      expect(night_reader_class.braille_phrase).to eq(".00.0...000..0000...0.0.0..000..000.00...00.0000.0..0.0.0.0....00.0...0.0.0.00..\n0000.0..00..0.......0.00.000.0..0..0....00....0.0....00..000..0000.0..0....0.0..\n0.......0.00....0.....0.0..00.....0.00....000.0.0...0.00..0...0.......0...0000..\n \n000.00...0.0..0....00.00.00.00000....00..0000...0.0..0..0.0.0.0.00..0.0..0.00.0.\n.0.000..0.0.......0..0.000.0.0...0..00000...00..00..0....00..000.0..0..00000.000\n..0.......0.......0...0.0...0........0..............0.....00..0.00..0...0.0...0.\n \n..0.00...00.0...0.0.000.0.0.0..0\n...00...0000.0....0.0.00..0..000\n..0.....0.........0.0.........0.\n")
+      expect(night_reader_class.braille_phrase).to eq(".00.0...000..0\n0000.0......00\n0...........0.\n")
     end
   end 
 
