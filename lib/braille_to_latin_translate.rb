@@ -1,7 +1,13 @@
 class BrailleToLatin
             
   def initialize(braille_phrase, file_to_be_written_to)
+    @original_message_file = File.new(file_to_be_written_to, "w")
+    original_message_file = @original_message_file
     @dictionary = Dictionary.new
+    latin_phrase = translate_braille_to_l(braille_phrase)
+    original_message_file.puts latin_phrase
+    original_message_file.close
+    print(latin_phrase, file_to_be_written_to)
   end
 
   def modify_script
@@ -11,6 +17,10 @@ class BrailleToLatin
       array << braille_letter 
     end 
     array
+  end
+
+  def print(phrase, file)
+    p "Created #{file} containing #{phrase.length} characters"
   end
 
   def translate_braille_to_l(braille_phrase)
