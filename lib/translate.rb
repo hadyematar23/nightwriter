@@ -5,7 +5,5 @@ class Translate
     @message_file = File.open(files[0], "r")
     translate_and_print(files)
   end
-
-
-
+  
 end
