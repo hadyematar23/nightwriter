@@ -55,10 +55,10 @@ context "input latin letters or phrases and return array of braille pre-transpos
     expect(latin_to_braille_translate.translate_l_to_braille(phrase_to_translate)).to eq([".0!00!0.", "0.!00!..", "0.!.0!.."])
   end
 
-  # it "when the input includes punctuation marks, it will disregard those and just return the letters, both capitalized and lowercase" do 
-    
-  #   expect()
-  # end
+  it "when the input includes punctuation marks, it will disregard those for matters of translation and the only letters to be translated into braille with be the actual latin letters, both capitalized and lowercase" do 
+    phrase_to_translate = "'good!23 '"
+    expect(latin_to_braille_translate.remove_punctuation(phrase_to_translate)).to eq("good ")
+  end
 
   it "when input of a Latin phrase is provided, it will return the braille equivalent of the phrase" do 
     phrase_to_translate = "hello w"

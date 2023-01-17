@@ -26,7 +26,7 @@ class LatinToBraille < Translate
 
   def translate_l_to_braille(phrase_to_translate) #TESTED
     translated_array = []
-    latin_phrase = phrase_to_translate.chars
+    latin_phrase = remove_punctuation(phrase_to_translate).chars
     latin_phrase.each do |latin_letter|
       @dictionary.braille_script.each do |braille_letter|
         if latin_letter.downcase == braille_letter.latin_equivalent
@@ -35,6 +35,10 @@ class LatinToBraille < Translate
     end
   end 
   translated_array 
+  end
+
+  def remove_punctuation(phrase_to_translate)
+    phrase_to_translate.gsub(/[^a-zA-Z\s]/, '')
   end
 
   def transpose_phrase(braille_array) 
