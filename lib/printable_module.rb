@@ -18,7 +18,6 @@ module Printable
   end
 
   def print_to_console(file, file_name = file)
-    require 'pry'; binding.pry
     length = count(file)
     print(length, file_name)
   end 

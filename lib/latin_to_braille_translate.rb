@@ -26,10 +26,10 @@ class LatinToBraille < Translate
 
   def translate_l_to_braille(phrase_to_translate) #TESTED
     translated_array = []
-    latin_phrase = phrase_to_translate.split('')
+    latin_phrase = phrase_to_translate.chars
     latin_phrase.each do |latin_letter|
       @dictionary.braille_script.each do |braille_letter|
-        if latin_letter == braille_letter.latin_equivalent
+        if latin_letter.downcase == braille_letter.latin_equivalent
           translated_array << braille_letter.representation
         end
     end
@@ -37,14 +37,14 @@ class LatinToBraille < Translate
   translated_array 
   end
 
-  def transpose_phrase(braille_array) #tested
+  def transpose_phrase(braille_array) 
       array = []
       braille_array.map {|brailee| array << brailee.split("!") }
       array = array.transpose
       array.map! {|element| element.join}
   end
 
-  def cut_to_eighty(transposed) #TESTED
+  def cut_to_eighty(transposed) 
     empty_hash = Hash.new{ |hash, key| hash[key] = [] }
     transposed.each do |element|
       i = 0

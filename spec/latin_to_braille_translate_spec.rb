@@ -40,25 +40,35 @@ describe "testing the input from message.txt and its output into braille.txt" do
   end
 end 
 context "input latin letters or phrases and return array of braille pre-transposed" do 
-it "when input of a Latin letter is provided it will return the braille equivalent" do
-  phrase_to_translate = "a"
-  expect(latin_to_braille_translate.translate_l_to_braille(phrase_to_translate)).to eq(["0.!..!.."])
-end
+  it "when input of a Latin letter is provided it will return the braille equivalent" do
+    phrase_to_translate = "a"
+    expect(latin_to_braille_translate.translate_l_to_braille(phrase_to_translate)).to eq(["0.!..!.."])
+  end
 
-it "when input of multiple letters is provided, it will return the braille equivalent in an array" do 
-  phrase_to_translate = "the"
-  expect(latin_to_braille_translate.translate_l_to_braille(phrase_to_translate)).to eq([".0!00!0.", "0.!00!..", "0.!.0!.."])
-end 
+  it "when input of multiple letters is provided, it will return the braille equivalent in an array" do 
+    phrase_to_translate = "the"
+    expect(latin_to_braille_translate.translate_l_to_braille(phrase_to_translate)).to eq([".0!00!0.", "0.!00!..", "0.!.0!.."])
+  end 
 
-it "when input of a Latin phrase is provided, it will return the braille equivalent of the phrase" do 
-  phrase_to_translate = "hello w"
-  expect(latin_to_braille_translate.translate_l_to_braille(phrase_to_translate)).to eq(["0.!00!..", "0.!.0!..", "0.!0.!0.", "0.!0.!0.", "0.!.0!0.", "..!..!..", ".0!00!.0"])
-end
+  it "when the input includes capitalized letters, it will turn them into lowercase letters and then return the equivalent in an array" do 
+    phrase_to_translate = "THE"
+    expect(latin_to_braille_translate.translate_l_to_braille(phrase_to_translate)).to eq([".0!00!0.", "0.!00!..", "0.!.0!.."])
+  end
 
-it "when input of a Latin phrase is provided, it will return the braille equivalent of the phrase" do 
-  phrase_to_translate = "a lazy fox"
-  expect(latin_to_braille_translate.translate_l_to_braille(phrase_to_translate)).to eq(["0.!..!..", "..!..!..", "0.!0.!0.", "0.!..!..", "0.!.0!00", "00!.0!00", "..!..!..", "00!0.!..", "0.!.0!0.", "00!..!00"])
-end
+  # it "when the input includes punctuation marks, it will disregard those and just return the letters, both capitalized and lowercase" do 
+    
+  #   expect()
+  # end
+
+  it "when input of a Latin phrase is provided, it will return the braille equivalent of the phrase" do 
+    phrase_to_translate = "hello w"
+    expect(latin_to_braille_translate.translate_l_to_braille(phrase_to_translate)).to eq(["0.!00!..", "0.!.0!..", "0.!0.!0.", "0.!0.!0.", "0.!.0!0.", "..!..!..", ".0!00!.0"])
+  end
+
+  it "when input of a Latin phrase is provided, it will return the braille equivalent of the phrase" do 
+    phrase_to_translate = "a lazy fox"
+    expect(latin_to_braille_translate.translate_l_to_braille(phrase_to_translate)).to eq(["0.!..!..", "..!..!..", "0.!0.!0.", "0.!..!..", "0.!.0!00", "00!.0!00", "..!..!..", "00!0.!..", "0.!.0!0.", "00!..!00"])
+  end
 end 
 
 context "transposing the braille array" do 
@@ -76,13 +86,6 @@ context "transposing the braille array" do
     braille_array = ["0.!..!.."]
     expect(latin_to_braille_translate.transpose_phrase(braille_array)[2]).to eq("..")
   end 
-
-  it "when you want to print two letters together, the first element of the print_phrase array will include the uppermost rows of both braille characters respectively" do 
-    braille_array = ["0.!..!.."]
-    expect(latin_to_braille_translate.transpose_phrase(braille_array)[0]).to eq("0.")
-    expect(latin_to_braille_translate.transpose_phrase(braille_array)[1]).to eq("..")
-    expect(latin_to_braille_translate.transpose_phrase(braille_array)[2]).to eq("..")
-  end
 
   it "transposes the braille to put it in the correct format and prints to the txt file" do 
     braille_array = ["0.!00!..", "0.!.0!..", "0.!0.!0.", "00!0.!0."]
