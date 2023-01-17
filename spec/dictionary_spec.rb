@@ -20,19 +20,5 @@ let(:dictionary){Dictionary.new}
     expect(dictionary.braille_script).to all(be_a(BrailleLetter))
     expect(dictionary.braille_script.count).to eq(27)
   end
-# FOR LATER- TRANSLATING BRAILLE TO ENGLISH 
-  # it "has a place to store the braille letteres" do 
-  #   expect(dictionary.braille_phrase).to eq([])
-  # end
-
-  # it "can add the braille phrases in an ordered fashion to the letters array" do 
-  #   dictionary.add_braille_letter_to_braille_phrase(a_braille)
-  #   dictionary.add_braille_letter_to_braille_phrase(b_braille)
-  #   dictionary.add_braille_letter_to_braille_phrase(c_braille)
-  #   dictionary.add_braille_letter_to_braille_phrase(space_braille)
-  #   dictionary.add_braille_letter_to_braille_phrase(a_braille)
-  
-  #   expect(dictionary.braille_phrase).to eq(["0.!..!..", "0.!0.!..", "00!..!..", "..!..!..", "0.!..!.."])
-  # end
 end 
     

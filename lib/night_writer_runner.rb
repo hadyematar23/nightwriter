@@ -1,3 +1,3 @@
-require_relative './night_writer_class'
+require_relative './latin_to_braille_translate'
 
-NightWriterClass.new(ARGV)
+LatinToBraille.new(ARGV)
