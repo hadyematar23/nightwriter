@@ -17,16 +17,16 @@ class LatinToBraille < Translate
     print_to_console(@message_file, files[1])
   end 
 
-  def translate_phrase(phrase_to_translate) #tested
-    non_transposed = translate_l_to_braille(phrase_to_translate)
-    transposed = transpose_phrase(non_transposed)
-    cut = cut_to_eighty(transposed)
-    blank_added = add_blank_space(cut)
+  def translate_phrase(input_from_file)
+    non_transposed_braille = convert_l_to_braille(input_from_file)
+    transposed_braille = transpose_phrase(non_transposed_braille)
+    cut = cut_to_eighty(transposed_braille)
+    add_blank_space(cut)
   end 
 
-  def translate_l_to_braille(phrase_to_translate) #TESTED
+  def convert_l_to_braille(input_from_file)
     translated_array = []
-    latin_phrase = remove_punctuation(phrase_to_translate).chars
+    latin_phrase = remove_punctuation(input_from_file).chars
     latin_phrase.each do |latin_letter|
       @dictionary.braille_script.each do |braille_letter|
         if latin_letter.downcase == braille_letter.latin_equivalent
@@ -37,8 +37,8 @@ class LatinToBraille < Translate
   translated_array 
   end
 
-  def remove_punctuation(phrase_to_translate)
-    phrase_to_translate.gsub(/[^a-zA-Z\s]/, '')
+  def remove_punctuation(input_from_file)
+    input_from_file.gsub(/[^a-zA-Z\s]/, '')
   end
 
   def transpose_phrase(braille_array) 
@@ -65,7 +65,7 @@ class LatinToBraille < Translate
     empty_hash.values
   end 
 
-  def add_blank_space(array) #TESTED
+  def add_blank_space(array) 
     new_ish = array.flat_map {|individual_array| [individual_array, [" "]]}
     new_ish = new_ish[0..-2]
   end

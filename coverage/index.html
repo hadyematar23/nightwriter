@@ -14,7 +14,7 @@
       <img src="./assets/0.12.3/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" class="hide">
-      <div class="timestamp">Generated <abbr class="timeago" title="2023-01-16T18:34:53-07:00">2023-01-16T18:34:53-07:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2023-01-17T11:23:10-07:00">2023-01-17T11:23:10-07:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
@@ -139,7 +139,7 @@
           <tr class="t-file">
             <td class="strong t-file__name"><a href="#8792f7c08245cffd937c4582fc0d84bc6b8f63f1" class="src_link" title="lib/translate.rb">lib/translate.rb</a></td>
             <td class="green strong cell--number t-file__coverage">100.00 %</td>
-            <td class="cell--number">11</td>
+            <td class="cell--number">9</td>
             <td class="cell--number">5</td>
             <td class="cell--number">5</td>
             <td class="cell--number">0</td>
@@ -580,7 +580,7 @@
 
             
 
-            <code class="ruby">  def translate_phrase(phrase) #teste</code>
+            <code class="ruby">  def translate_phrase(braille_input_from_file) </code>
           </li>
         </div>
       
@@ -591,7 +591,7 @@
 
             
 
-            <code class="ruby">    split_lines = split_lines(phrase)</code>
+            <code class="ruby">    split_lines = split_lines(braille_input_from_file)</code>
           </li>
         </div>
       
@@ -646,7 +646,7 @@
 
             
 
-            <code class="ruby">  def modify_script #tested</code>
+            <code class="ruby">  def modify_script </code>
           </li>
         </div>
       
@@ -745,7 +745,7 @@
 
             
 
-            <code class="ruby">  def split_lines(phrase) #tested</code>
+            <code class="ruby">  def split_lines(phrase) </code>
           </li>
         </div>
       
@@ -789,7 +789,7 @@
 
             
 
-            <code class="ruby">  def create_representations(already_split) #tested</code>
+            <code class="ruby">  def create_representations(already_split) </code>
           </li>
         </div>
       
@@ -965,7 +965,7 @@
 
             
 
-            <code class="ruby">  def translate_method(argument) #tested</code>
+            <code class="ruby">  def translate_method(already_split) </code>
           </li>
         </div>
       
@@ -987,7 +987,7 @@
 
             
 
-            <code class="ruby">    argument.each do |element|</code>
+            <code class="ruby">    already_split.each do |element|</code>
           </li>
         </div>
       
@@ -1108,7 +1108,7 @@
 
             
 
-            <code class="ruby">  def iterate_to_latin(representations)#tested</code>
+            <code class="ruby">  def iterate_to_latin(representations)</code>
           </li>
         </div>
       
@@ -2136,7 +2136,7 @@
 
             
 
-            <code class="ruby">  def translate_phrase(phrase_to_translate) #tested</code>
+            <code class="ruby">  def translate_phrase(input_from_file)</code>
           </li>
         </div>
       
@@ -2147,7 +2147,7 @@
 
             
 
-            <code class="ruby">    non_transposed = translate_l_to_braille(phrase_to_translate)</code>
+            <code class="ruby">    non_transposed_braille = convert_l_to_braille(input_from_file)</code>
           </li>
         </div>
       
@@ -2158,7 +2158,7 @@
 
             
 
-            <code class="ruby">    transposed = transpose_phrase(non_transposed)</code>
+            <code class="ruby">    transposed_braille = transpose_phrase(non_transposed_braille)</code>
           </li>
         </div>
       
@@ -2169,7 +2169,7 @@
 
             
 
-            <code class="ruby">    cut = cut_to_eighty(transposed)</code>
+            <code class="ruby">    cut = cut_to_eighty(transposed_braille)</code>
           </li>
         </div>
       
@@ -2180,7 +2180,7 @@
 
             
 
-            <code class="ruby">    blank_added = add_blank_space(cut)</code>
+            <code class="ruby">    add_blank_space(cut)</code>
           </li>
         </div>
       
@@ -2213,7 +2213,7 @@
 
             
 
-            <code class="ruby">  def translate_l_to_braille(phrase_to_translate) #TESTED</code>
+            <code class="ruby">  def convert_l_to_braille(input_from_file)</code>
           </li>
         </div>
       
@@ -2235,7 +2235,7 @@
 
             
 
-            <code class="ruby">    latin_phrase = remove_punctuation(phrase_to_translate).chars</code>
+            <code class="ruby">    latin_phrase = remove_punctuation(input_from_file).chars</code>
           </li>
         </div>
       
@@ -2356,7 +2356,7 @@
 
             
 
-            <code class="ruby">  def remove_punctuation(phrase_to_translate)</code>
+            <code class="ruby">  def remove_punctuation(input_from_file)</code>
           </li>
         </div>
       
@@ -2367,7 +2367,7 @@
 
             
 
-            <code class="ruby">    phrase_to_translate.gsub(/[^a-zA-Z\s]/, &#39;&#39;)</code>
+            <code class="ruby">    input_from_file.gsub(/[^a-zA-Z\s]/, &#39;&#39;)</code>
           </li>
         </div>
       
@@ -2664,7 +2664,7 @@
 
             
 
-            <code class="ruby">  def add_blank_space(array) #TESTED</code>
+            <code class="ruby">  def add_blank_space(array) </code>
           </li>
         </div>
       
@@ -2772,7 +2772,7 @@
 
             
 
-            <code class="ruby">  def print_to_txt_file(translated_phrase, file) #tested</code>
+            <code class="ruby">  def print_to_txt_file(translated_phrase, file) </code>
           </li>
         </div>
       
@@ -2838,7 +2838,7 @@
 
             
 
-            <code class="ruby">  def count(file) #test</code>
+            <code class="ruby">  def count(file) </code>
           </li>
         </div>
       
@@ -2915,7 +2915,7 @@
 
             
 
-            <code class="ruby">  def print(length, file_name) #tested</code>
+            <code class="ruby">  def print(length, file_name) </code>
           </li>
         </div>
       
@@ -3122,34 +3122,12 @@
 
             
 
-            <code class="ruby"></code>
+            <code class="ruby">  </code>
           </li>
         </div>
       
         <div>
           <li class="never" data-hits="" data-linenumber="9">
-            
-            
-
-            
-
-            <code class="ruby"></code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="10">
-            
-            
-
-            
-
-            <code class="ruby"></code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="11">
             
             
 
@@ -5314,7 +5292,7 @@
 
             
 
-            <code class="ruby">    expect(latin_to_braille_translate.translate_l_to_braille(phrase_to_translate)).to eq([&quot;0.!..!..&quot;])</code>
+            <code class="ruby">    expect(latin_to_braille_translate.convert_l_to_braille(phrase_to_translate)).to eq([&quot;0.!..!..&quot;])</code>
           </li>
         </div>
       
@@ -5369,7 +5347,7 @@
 
             
 
-            <code class="ruby">    expect(latin_to_braille_translate.translate_l_to_braille(phrase_to_translate)).to eq([&quot;.0!00!0.&quot;, &quot;0.!00!..&quot;, &quot;0.!.0!..&quot;])</code>
+            <code class="ruby">    expect(latin_to_braille_translate.convert_l_to_braille(phrase_to_translate)).to eq([&quot;.0!00!0.&quot;, &quot;0.!00!..&quot;, &quot;0.!.0!..&quot;])</code>
           </li>
         </div>
       
@@ -5424,7 +5402,7 @@
 
             
 
-            <code class="ruby">    expect(latin_to_braille_translate.translate_l_to_braille(phrase_to_translate)).to eq([&quot;.0!00!0.&quot;, &quot;0.!00!..&quot;, &quot;0.!.0!..&quot;])</code>
+            <code class="ruby">    expect(latin_to_braille_translate.convert_l_to_braille(phrase_to_translate)).to eq([&quot;.0!00!0.&quot;, &quot;0.!00!..&quot;, &quot;0.!.0!..&quot;])</code>
           </li>
         </div>
       
@@ -5534,7 +5512,7 @@
 
             
 
-            <code class="ruby">    expect(latin_to_braille_translate.translate_l_to_braille(phrase_to_translate)).to eq([&quot;0.!00!..&quot;, &quot;0.!.0!..&quot;, &quot;0.!0.!0.&quot;, &quot;0.!0.!0.&quot;, &quot;0.!.0!0.&quot;, &quot;..!..!..&quot;, &quot;.0!00!.0&quot;])</code>
+            <code class="ruby">    expect(latin_to_braille_translate.convert_l_to_braille(phrase_to_translate)).to eq([&quot;0.!00!..&quot;, &quot;0.!.0!..&quot;, &quot;0.!0.!0.&quot;, &quot;0.!0.!0.&quot;, &quot;0.!.0!0.&quot;, &quot;..!..!..&quot;, &quot;.0!00!.0&quot;])</code>
           </li>
         </div>
       
@@ -5589,7 +5567,7 @@
 
             
 
-            <code class="ruby">    expect(latin_to_braille_translate.translate_l_to_braille(phrase_to_translate)).to eq([&quot;0.!..!..&quot;, &quot;..!..!..&quot;, &quot;0.!0.!0.&quot;, &quot;0.!..!..&quot;, &quot;0.!.0!00&quot;, &quot;00!.0!00&quot;, &quot;..!..!..&quot;, &quot;00!0.!..&quot;, &quot;0.!.0!0.&quot;, &quot;00!..!00&quot;])</code>
+            <code class="ruby">    expect(latin_to_braille_translate.convert_l_to_braille(phrase_to_translate)).to eq([&quot;0.!..!..&quot;, &quot;..!..!..&quot;, &quot;0.!0.!0.&quot;, &quot;0.!..!..&quot;, &quot;0.!.0!00&quot;, &quot;00!.0!00&quot;, &quot;..!..!..&quot;, &quot;00!0.!..&quot;, &quot;0.!.0!0.&quot;, &quot;00!..!00&quot;])</code>
           </li>
         </div>
       
@@ -5886,7 +5864,7 @@
 
             
 
-            <code class="ruby">    braille_array = latin_to_braille_translate.translate_l_to_braille(phrase)</code>
+            <code class="ruby">    braille_array = latin_to_braille_translate.convert_l_to_braille(phrase)</code>
           </li>
         </div>
       
@@ -5963,7 +5941,7 @@
 
             
 
-            <code class="ruby">    braille_array = latin_to_braille_translate.translate_l_to_braille(phrase_to_translate)</code>
+            <code class="ruby">    braille_array = latin_to_braille_translate.convert_l_to_braille(phrase_to_translate)</code>
           </li>
         </div>
       
@@ -6051,7 +6029,7 @@
 
             
 
-            <code class="ruby">    braille_array = latin_to_braille_translate.translate_l_to_braille(phrase_to_translate)</code>
+            <code class="ruby">    braille_array = latin_to_braille_translate.convert_l_to_braille(phrase_to_translate)</code>
           </li>
         </div>
       
@@ -6194,7 +6172,7 @@
 
             
 
-            <code class="ruby">    braille_array = latin_to_braille_translate.translate_l_to_braille(phrase_to_translate)</code>
+            <code class="ruby">    braille_array = latin_to_braille_translate.convert_l_to_braille(phrase_to_translate)</code>
           </li>
         </div>
       

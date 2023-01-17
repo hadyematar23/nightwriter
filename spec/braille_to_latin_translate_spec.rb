@@ -78,19 +78,19 @@ end
   end
   
 context "counting and printing the characters to the console" do 
-    it "can count the number of characters in the newly created file" do 
-      files = ["braille.txt", "dummy_testing_files/dummy_latin_text.txt"]
-      expect(braille_to_latin_translate.count(files[1])).to eq(11)
-    end
+  it "can count the number of characters in the newly created file" do 
+    files = ["braille.txt", "dummy_testing_files/dummy_latin_text.txt"]
+    expect(braille_to_latin_translate.count(files[1])).to eq(11)
+  end
 
-    it "can then print the file name and length to the console" do 
-      length = 23
-      expect(braille_to_latin_translate.print(length, files[1])).to eq("Created original_message.txt containing 23 characters")
-    end
+  it "can then print the file name and length to the console" do 
+    length = 23
+    expect(braille_to_latin_translate.print(length, files[1])).to eq("Created original_message.txt containing 23 characters")
+  end
 
-    it "integration test" do 
-      files = ["braille.txt", "dummy_testing_files/dummy_latin_text.txt"]
-      expect(braille_to_latin_translate.print_to_console(files[1])).to eq("Created dummy_testing_files/dummy_latin_text.txt containing 11 characters")
-    end
+  it "integration test" do 
+    files = ["braille.txt", "dummy_testing_files/dummy_latin_text.txt"]
+    expect(braille_to_latin_translate.print_to_console(files[1])).to eq("Created dummy_testing_files/dummy_latin_text.txt containing 11 characters")
+  end
   end
 end 

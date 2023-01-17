@@ -17,13 +17,13 @@ class BrailleToLatin < Translate
     print_to_console(files[1])
   end
 
-  def translate_phrase(phrase) #teste
-    split_lines = split_lines(phrase)
+  def translate_phrase(braille_input_from_file) 
+    split_lines = split_lines(braille_input_from_file)
     representations = create_representations(split_lines)
     converted_phrase = iterate_to_latin(representations)
   end
 
-  def modify_script #tested
+  def modify_script 
     array = []
     @dictionary.braille_script.each do |braille_letter|
       braille_letter.representation.delete! "!"
@@ -32,11 +32,11 @@ class BrailleToLatin < Translate
     array
   end
 
-  def split_lines(phrase) #tested
+  def split_lines(phrase) 
     split = phrase.split("\n")
   end
 
-  def create_representations(already_split) #tested
+  def create_representations(already_split) 
   
     if already_split.count == 3
       translate_method(already_split)
@@ -52,9 +52,9 @@ class BrailleToLatin < Translate
     end
   end
 
-  def translate_method(argument) #tested
+  def translate_method(already_split) 
     empty_hash = Hash.new{ |hash, key| hash[key] = [] }
-    argument.each do |element|
+    already_split.each do |element|
       i = 0 
       while element.chars.length > 0 do   
         i = i + 1
@@ -65,7 +65,7 @@ class BrailleToLatin < Translate
     a = empty_hash.values.map {|array| array.join}
   end
 
-  def iterate_to_latin(representations)#tested
+  def iterate_to_latin(representations)
     latin_letter_array = []
     representations.each do |representation| 
       modify_script.each do |braille_letter_object|
