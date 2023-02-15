@@ -4,7 +4,7 @@ Before there was [braille](https://en.wikipedia.org/wiki/Braille), Louis Barbier
 one of the teachers of Louis Braille, created night-writing, a system to permit soldiers to communicate in total darkness. The French army at the time 
 deemed it impractical because of its complexity but it was the basis for the eventual braille system we know today. 
 
-##This Translation Project 
+## This Translation Project 
 
 This project attempts to mimic braille in a computer format through the uses of an '0' representing a raised dot and a '.' representing an unraised piece 
 of paper. A user can create a txt txt file in the root directory (there is already one created by default called 'message.txt' and input the desired latin script. 
@@ -24,7 +24,7 @@ and translate the braille file from 'braille.txt' and output it in traditional l
 
 It's that easy. 
 
-##Limitations 
+## Limitations 
 
 This program will work for any language base with a [latin alphabet script](https://en.wikipedia.org/wiki/Latin_alphabet) but it does not include punctuation, 
 capitalizations, and accents and other characters used in other latin-based langauges (such as the [ñ](https://en.wikipedia.org/wiki/%C3%91) from Spanish. In fact, Braille did not 
